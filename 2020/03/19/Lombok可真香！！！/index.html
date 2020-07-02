@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>Lombok可真香！！！</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/about/">About</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/&title=Lombok可真香！！！"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/&title=Lombok可真香！！！"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/&text=Lombok可真香！！！" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Lombok可真香！！！&body=Check out this article: http://theoak.online/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lombok到底是什么"><span class="toc-number">1.</span> <span class="toc-text">Lombok到底是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目中引入Lombok"><span class="toc-number">2.</span> <span class="toc-text">项目中引入Lombok</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get-set-toString不用写了"><span class="toc-number">3.</span> <span class="toc-text">get&#x2F;set&#x2F;toString不用写了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new对象变得优雅了"><span class="toc-number">4.</span> <span class="toc-text">new对象变得优雅了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数不用写了"><span class="toc-number">5.</span> <span class="toc-text">构造函数不用写了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null判空不用写了"><span class="toc-number">6.</span> <span class="toc-text">null判空不用写了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#再也不用收尾了"><span class="toc-number">7.</span> <span class="toc-text">再也不用收尾了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常不用捕捉了"><span class="toc-number">8.</span> <span class="toc-text">异常不用捕捉了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#还有一些"><span class="toc-number">9.</span> <span class="toc-text">还有一些</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        Lombok可真香！！！
+    </h1>
+
+        <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">
+            EricGerry
+            
+        </span>
+      </span>
+            
+    <div class="postdate">
+        
+            <time datetime="2020-03-19T12:02:00.000Z"
+                  itemprop="datePublished">2020-03-19</time>
+            
+                (Updated:
+                <time datetime="2020-04-17T10:12:48.686Z"
+                      itemprop="dateModified">2020-04-17</time>)
+            
+        
+    </div>
+
+            
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/java/">java</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Lombok/" rel="tag">Lombok</a>
+    </div>
+
+        </div>
+    </header>
+    
+    <div class="content" itemprop="articleBody">
+        <h3 id="Lombok到底是什么"><a href="#Lombok到底是什么" class="headerlink" title="Lombok到底是什么"></a>Lombok到底是什么</h3><p>先看一下它的官网<br><img src="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/Lombok%E5%AE%98%E7%BD%91.jpg" alt="Lombok官网"><br><strong>大致意思是</strong>：Lombok项目是一个Java库，它会自动插入您的编辑器和构建工具中，从而为您的Java增光添彩。永远不要再编写另一个getter或equals方法，带有一个注释的类将具有功能全面的生成器，自动执行日志记录变量等等。</p>
+<p>听起来好像是挺不错吼，亲自尝试一下吧！</p>
+<hr>
+<h3 id="项目中引入Lombok"><a href="#项目中引入Lombok" class="headerlink" title="项目中引入Lombok"></a>项目中引入Lombok</h3><a id="more"></a>
+<p>首先在项目的 pom.xml中引入 Lombok依赖：</p>
+<p>如果不知道如何导入的话，可以在<a href="https://mvnrepository.com/" target="_blank" rel="noopener">MvnRepository</a>进行查找一下，是不是就很nice。<br><img src="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/MvnRepository.jpg" alt="MvnRepository"><br>接下来你就会看到如下界面<br><img src="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/Choose.jpg" alt="ChooseLombok"><br><strong>选择安装版本</strong><br>一般我们选择使用人数多且不是最新版本的，于是我们选择1.18.8<br><img src="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/version.jpg" alt="version"><br>于是乎我们复制这段代码到pom.xml中引入 Lombok依赖：<br><img src="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/%E5%AF%BC%E5%85%A5%E4%BE%9D%E8%B5%96.jpg" alt="导入依赖"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">&lt;!-- https:&#x2F;&#x2F;mvnrepository.com&#x2F;artifact&#x2F;org.projectlombok&#x2F;lombok --&gt;</span><br><span class="line">&lt;dependency&gt;</span><br><span class="line">    &lt;groupId&gt;org.projectlombok&lt;&#x2F;groupId&gt;</span><br><span class="line">    &lt;artifactId&gt;lombok&lt;&#x2F;artifactId&gt;</span><br><span class="line">    &lt;version&gt;1.18.8&lt;&#x2F;version&gt;</span><br><span class="line">    &lt;scope&gt;provided&lt;&#x2F;scope&gt;</span><br><span class="line">&lt;&#x2F;dependency&gt;</span><br></pre></td></tr></table></figure>
+
+<p>项目中导入<img src="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/%E9%A1%B9%E7%9B%AE%E4%B8%AD%E5%AF%BC%E5%85%A5.jpg" alt=" "><br>接下来就是愉快的代码环节了。</p>
+<hr>
+<h3 id="get-set-toString不用写了"><a href="#get-set-toString不用写了" class="headerlink" title="get/set/toString不用写了"></a>get/set/toString不用写了</h3><p>定义一个课程 Course，需要自己手动写上每个字段的 get()和 set()方法以及toString()方法，就像这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>：Eric</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>：2020/3/19 21:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Long id;    <span class="comment">// 课程ID</span></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 课程名称</span></span><br><span class="line">    <span class="keyword">private</span> Integer score;  <span class="comment">// 课程成绩</span></span><br><span class="line">    <span class="comment">// 自己手写下面的 get/set/toString 方法！</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setId</span><span class="params">(Long id)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setScore</span><span class="params">(Integer score)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.score = score;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Long <span class="title">getId</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> id;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">getScore</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> score;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">toString</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">"Course&#123;"</span> +</span><br><span class="line">                <span class="string">"id="</span> + id +</span><br><span class="line">                <span class="string">", name='"</span> + name + <span class="string">'\''</span> +</span><br><span class="line">                <span class="string">", score="</span> + score +</span><br><span class="line">                <span class="string">'&#125;'</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>但是借助于Lombok，一切都变得优雅起来</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"><span class="keyword">import</span> lombok.ToString;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>：Eric</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>：2020/3/19 21:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> Long id;    <span class="comment">// 课程ID</span></span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 课程名称</span></span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> Integer score;  <span class="comment">// 课程成绩</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>三个注解：@Getter、@Setter和@ToString即可方便搞定。</p>
+<hr>
+<h3 id="new对象变得优雅了"><a href="#new对象变得优雅了" class="headerlink" title="new对象变得优雅了"></a>new对象变得优雅了</h3><p>在没有用Lombok之前，我们假如想new一个对象，我们往往会这么做（以上面的 Course类为例）：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Course course = <span class="keyword">new</span> Course(); <span class="comment">//首先new一个对象</span></span><br><span class="line">      <span class="comment">//逐步去填充各个字段</span></span><br><span class="line">  course.setId(<span class="number">124l</span>);</span><br><span class="line">  course.setName(<span class="string">"javaWeb"</span>);</span><br><span class="line">  course.setScore(<span class="number">100</span>);</span><br></pre></td></tr></table></figure>
+
+<p>引进Lombok之后，我们只需要在 Course类上用上 @Builder注解：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@ToString</span></span><br><span class="line"><span class="meta">@Builder</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> Long id;    <span class="comment">// 课程ID</span></span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 课程名称</span></span><br><span class="line">    <span class="meta">@Getter</span></span><br><span class="line">    <span class="meta">@Setter</span></span><br><span class="line">    <span class="keyword">private</span> Integer score;  <span class="comment">// 课程成绩</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>则 Course类对象的创建即可使用 链式表达 的方式一行代码完成：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ourse course = Course.builder().id(<span class="number">123l</span>).name(<span class="string">"javaWeb"</span>).score(<span class="number">100</span>).build();</span><br></pre></td></tr></table></figure>
+
+<p>Builder注解就是一个典型的“建造者模式”的实现案例</p>
+<hr>
+<h3 id="构造函数不用写了"><a href="#构造函数不用写了" class="headerlink" title="构造函数不用写了"></a>构造函数不用写了</h3><p>1、全参构造器不用写了</p>
+<p>当你在你的类上使用了Lombok的注解 AllArgsConstructor时：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"><span class="keyword">import</span> lombok.ToString;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>：Eric</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>：2020/3/19 21:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@AllArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;    <span class="comment">// 课程ID</span></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 课程名称</span></span><br><span class="line">    <span class="keyword">private</span> Integer score;  <span class="comment">// 课程成绩</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这时候你的类在编译后会自动生成一个无参构造函数，就像这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.AllArgsConstructor;</span><br><span class="line"><span class="keyword">import</span> lombok.Getter;</span><br><span class="line"><span class="keyword">import</span> lombok.Setter;</span><br><span class="line"><span class="keyword">import</span> lombok.ToString;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>：Eric</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>：2020/3/19 21:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;    <span class="comment">// 课程ID</span></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 课程名称</span></span><br><span class="line">    <span class="keyword">private</span> Integer score;  <span class="comment">// 课程成绩</span></span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Course</span><span class="params">(Long id, String name, Integer score)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.id = id;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">        <span class="keyword">this</span>.score = score;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>2、无参数构造器也不用写了</p>
+<p>当你在你的类上使用了Lombok的注解 NoArgsConstructor时：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>：Eric</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>：2020/3/19 21:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@NoArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;    <span class="comment">// 课程ID</span></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 课程名称</span></span><br><span class="line">    <span class="keyword">private</span> Integer score;  <span class="comment">// 课程成绩</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这时候你的类在编译后会自动生成一个无参构造函数，就像这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>：Eric</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>：2020/3/19 21:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;    <span class="comment">// 课程ID</span></span><br><span class="line">    <span class="keyword">private</span> String name;    <span class="comment">// 课程名称</span></span><br><span class="line">    <span class="keyword">private</span> Integer score;  <span class="comment">// 课程成绩</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">// Lombok自动会帮你生成一个无参构造器！！</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Course</span><span class="params">()</span> </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>3、部分参数构造器也不用写了</p>
+<p>当你在你的类上使用了Lombok的注解 RequiredArgsConstructor时：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>：Eric</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>：2020/3/19 21:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"><span class="meta">@RequiredArgsConstructor</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;    <span class="comment">// 课程ID</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;    <span class="comment">// 课程名称</span></span><br><span class="line">    <span class="keyword">private</span> Integer score;  <span class="comment">// 课程成绩</span></span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这时候你的类在编译后会自动生成一个具备部分参数的构造函数，就像这样：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> Dao;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> lombok.*;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Author</span>：Eric</span></span><br><span class="line"><span class="comment"> * <span class="doctag">@Date</span>：2020/3/19 21:02</span></span><br><span class="line"><span class="comment"> */</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Course</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="keyword">private</span> Long id;    <span class="comment">// 课程ID</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">final</span> String name;    <span class="comment">// 课程名称</span></span><br><span class="line">    <span class="keyword">private</span> Integer score;  <span class="comment">// 课程成绩</span></span><br><span class="line">    <span class="comment">// 因为name字段定义成final，所以Lombok自动会帮你生成一个部分参数的构造器！！</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Course</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="null判空不用写了"><a href="#null判空不用写了" class="headerlink" title="null判空不用写了"></a>null判空不用写了</h3><p>Lombok的 @NonNull注解可以自动帮我们避免空指针判断。该注解作用在方法参数上，用于自动生成空值参数检查，比如：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">JudgeNull</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">      <span class="keyword">if</span> (name == <span class="keyword">null</span>)&#123;</span><br><span class="line">          System.out.println(<span class="string">"参数为空"</span>);</span><br><span class="line">      &#125;</span><br><span class="line">      System.out.println(name);</span><br><span class="line">  &#125;</span><br></pre></td></tr></table></figure>
+
+<p>大批量的判空会不会让你感到烦躁呢？但是有了Lombok之后，事情就变得简单了，一个注解搞定：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">JudgeNull</span><span class="params">(@NonNull String name)</span></span>&#123;</span><br><span class="line">       System.out.println(name);</span><br><span class="line">   &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="再也不用收尾了"><a href="#再也不用收尾了" class="headerlink" title="再也不用收尾了"></a>再也不用收尾了</h3><p>比如我们打开一个 txt文本文件亦或是调用Scanner输入：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">BufferedReader br = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            FileReader fileReader = <span class="keyword">null</span>;</span><br><span class="line">            fileReader = <span class="keyword">new</span> FileReader(<span class="string">"Lombok.txt"</span>);</span><br><span class="line">            br = <span class="keyword">new</span> BufferedReader(fileReader);</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                System.out.println(br.readLine());</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line"></span><br><span class="line">        &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;<span class="keyword">finally</span> &#123;</span><br><span class="line">            <span class="keyword">try</span> &#123;</span><br><span class="line">                br.close();</span><br><span class="line">            &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br></pre></td></tr></table></figure>
+
+<p>注意，这个文件句柄在使用完成之后是一定要手动 close的，否则就有可能资源泄漏。有了Lombok之后，这些统统不用干了，一个 @Cleanup注解即可搞定。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@Cleanup</span> BufferedReader br = <span class="keyword">null</span>;</span><br><span class="line">       FileReader fileReader = <span class="keyword">null</span>;</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           fileReader = <span class="keyword">new</span> FileReader(<span class="string">"Lombok.txt"</span>);</span><br><span class="line">       &#125; <span class="keyword">catch</span> (FileNotFoundException e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br><span class="line">       br = <span class="keyword">new</span> BufferedReader(fileReader);</span><br><span class="line">       <span class="keyword">try</span> &#123;</span><br><span class="line">           System.out.println(br.readLine());</span><br><span class="line">       &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">           e.printStackTrace();</span><br><span class="line">       &#125;</span><br></pre></td></tr></table></figure>
+
+<hr>
+<h3 id="异常不用捕捉了"><a href="#异常不用捕捉了" class="headerlink" title="异常不用捕捉了"></a>异常不用捕捉了</h3><p>以上面那个作为例子</p>
+<p>这地方的 FileNotFoundException异常，要么显式地在函数级抛出，要么就像上面一样 try/catch内部消灭。</p>
+<p>如果在编码时，不想处理这种繁杂的异常处理，你可以使用Lombok的 @SneakyThrows注解进行简化，比如上面的代码就可以简化为：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">@SneakyThrows</span></span><br><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">OpnTxt</span><span class="params">( String fileName)</span></span>&#123;</span><br><span class="line">    <span class="meta">@Cleanup</span> BufferedReader br = <span class="keyword">null</span>;</span><br><span class="line">    FileReader fileReader = <span class="keyword">null</span>;</span><br><span class="line">    fileReader = <span class="keyword">new</span> FileReader(<span class="string">"Lombok.txt"</span>);</span><br><span class="line">    br = <span class="keyword">new</span> BufferedReader(fileReader);</span><br><span class="line">    System.out.println(br.readLine());</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这样你编码时就无需处理异常了</p>
+<hr>
+<h3 id="还有一些"><a href="#还有一些" class="headerlink" title="还有一些"></a>还有一些</h3><p>上面列举了几个平时项目开发中使用非常频繁的Lombok注解，除此之外，还有诸如像：</p>
+<ul>
+<li>@EqualsAndHashCode：为类自动生成hashCode和equals实现</li>
+<li>@Log：为类自动生成log日志记录</li>
+<li>@Synchronized：为类方法或实例方法自动生成synchronized保护</li>
+</ul>
+<hr>
+<p>从此，代码5分钟，划水2小时不是梦。。。<br><img src="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/%E5%88%92%E6%B0%B4%E5%96%BD.jpg" alt="只想本分划水"></p>
+
+    </div>
+</article>
+
+    <div class="blog-post-comments">
+        <section id="comment">
+            <div id="valine_container" class="valine_thread"></div>
+        </section>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick', 'mail', 'link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'true' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                appId: "TEnoeFH0w3atQfEjCMpzfDOm-gzGzoHsz",
+                appKey: "8GXwVUi9ebKXuqSFR48rkXtK",
+                placeholder: "Just go go",
+                pageSize: '10',
+                avatar: 'mm',
+                lang: 'zh-cn'
+            })
+        </script>
+    </div>
+
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#Lombok到底是什么"><span class="toc-number">1.</span> <span class="toc-text">Lombok到底是什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#项目中引入Lombok"><span class="toc-number">2.</span> <span class="toc-text">项目中引入Lombok</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#get-set-toString不用写了"><span class="toc-number">3.</span> <span class="toc-text">get&#x2F;set&#x2F;toString不用写了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#new对象变得优雅了"><span class="toc-number">4.</span> <span class="toc-text">new对象变得优雅了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#构造函数不用写了"><span class="toc-number">5.</span> <span class="toc-text">构造函数不用写了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#null判空不用写了"><span class="toc-number">6.</span> <span class="toc-text">null判空不用写了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#再也不用收尾了"><span class="toc-number">7.</span> <span class="toc-text">再也不用收尾了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#异常不用捕捉了"><span class="toc-number">8.</span> <span class="toc-text">异常不用捕捉了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#还有一些"><span class="toc-number">9.</span> <span class="toc-text">还有一些</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/&title=Lombok可真香！！！"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/&title=Lombok可真香！！！"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/&text=Lombok可真香！！！" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Lombok可真香！！！&body=Check out this article: http://theoak.online/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

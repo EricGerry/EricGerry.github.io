@@ -1,0 +1,434 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>hexo从零开始搭建个人博客</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/about/">About</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2019/09/23/Java%E4%B8%AD%E7%9A%84static%E5%85%B3%E9%94%AE%E5%AD%97%E8%A7%A3%E6%9E%90/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/&title=hexo从零开始搭建个人博客"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/&title=hexo从零开始搭建个人博客"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/&text=hexo从零开始搭建个人博客" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=hexo从零开始搭建个人博客&body=Check out this article: http://theoak.online/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是-Hexo"><span class="toc-number">1.</span> <span class="toc-text">1.什么是 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-安装Git"><span class="toc-number">2.</span> <span class="toc-text">2.安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-安装NodeJs"><span class="toc-number">3.</span> <span class="toc-text">3. 安装NodeJs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-安装hexo"><span class="toc-number">4.</span> <span class="toc-text">4. 安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-桥接到github"><span class="toc-number">5.</span> <span class="toc-text">5.桥接到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-做到这里就快接近成功了"><span class="toc-number">6.</span> <span class="toc-text">6.做到这里就快接近成功了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-上传到github"><span class="toc-number">7.</span> <span class="toc-text">7. 上传到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-绑定个人域名"><span class="toc-number">8.</span> <span class="toc-text">8. 绑定个人域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-修改及配置主题"><span class="toc-number">9.</span> <span class="toc-text">9. 修改及配置主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-常用hexo命令"><span class="toc-number">10.</span> <span class="toc-text">10.常用hexo命令</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        hexo从零开始搭建个人博客
+    </h1>
+
+        <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">
+            EricGerry
+            
+        </span>
+      </span>
+            
+    <div class="postdate">
+        
+            <time datetime="2019-09-14T14:13:37.000Z"
+                  itemprop="datePublished">2019-09-14</time>
+            
+                (Updated:
+                <time datetime="2020-04-17T10:12:52.112Z"
+                      itemprop="dateModified">2020-04-17</time>)
+            
+        
+    </div>
+
+            
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/hexo/">hexo</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/git/" rel="tag">git</a>, <a class="tag-link" href="/tags/hexo/" rel="tag">hexo</a>, <a class="tag-link" href="/tags/node/" rel="tag">node</a>
+    </div>
+
+        </div>
+    </header>
+    
+    <div class="content" itemprop="articleBody">
+        <p><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/hexo+github.jpg" alt="hexo+github"></p>
+<h3 id="1-什么是-Hexo"><a href="#1-什么是-Hexo" class="headerlink" title="1.什么是 Hexo"></a>1.什么是 Hexo</h3><p>Hexo 是一个快速、简洁且高效的博客框架。Hexo 使用 Markdown（或其他渲染引擎）解析文章，在几秒内，即可利用靓丽的主题生成静态网页<br>具体参考<a href="https://hexo.io/zh-cn/docs/index.html" target="_blank" rel="noopener">Hexo官方文档</a><br><a href="http://www.theoak.online" target="_blank" rel="noopener">Hexo博客</a></p>
+<a id="more"></a>
+<h3 id="2-安装Git"><a href="#2-安装Git" class="headerlink" title="2.安装Git"></a>2.安装Git</h3><p>我一直不太喜欢在cmd中操作各种命令，所以挑了这个比较好使的Git, 我的是windows环境，所以下载windows版本并安装就可以了。</p>
+<ul>
+<li><a href="https://git-scm.com/downloads" target="_blank" rel="noopener">下载地址</a></li>
+<li>安装步骤：双击下载好的exe文件，一路next就好啦</li>
+<li>安装好后，打开gitbash，查看版本：<br>命令：git version (写这篇博客的时候最新版本：2.12.2)<br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/gitVersion.jpg" alt="Git版本"></li>
+</ul>
+<h3 id="3-安装NodeJs"><a href="#3-安装NodeJs" class="headerlink" title="3. 安装NodeJs"></a>3. 安装NodeJs</h3><p>Hexo是基于nodeJS环境的静态博客，里面的npm工具很有用啊，所以还是老老实实把这玩意儿装了吧</p>
+<ul>
+<li><a href="https://nodejs.org/en/" target="_blank" rel="noopener">下载地址</a>(说明：LTS为长期支持版，Current为当前最新版)</li>
+<li>安装步骤：反正下载好msi文件后，双击打开安装，也是一路next，不过在Custom Setup这一步记得选 Add to PATH ,这样你就不用自己去配置电脑上环境变量了，装完在按 win + r 快捷键调出运行，然后输入cmd确定，在cmd中输入path可以看到你的node是否配置在里面（环境变量），没有的话你就自由发挥吧。</li>
+<li>查看版本：<br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/node%E7%89%88%E6%9C%AC.jpg" alt="node版本"></li>
+</ul>
+<h3 id="4-安装hexo"><a href="#4-安装hexo" class="headerlink" title="4. 安装hexo"></a>4. 安装hexo</h3><p>后面的东西都是在gitbash中用npm工具安装就好了。</p>
+<ul>
+<li><p>先创建一个文件夹（用来存放所有blog的东西），然后cd到该文件夹下。</p>
+</li>
+<li><p>安装hexo命令：npm i -g hexo</p>
+</li>
+<li><p>安装完成后，查看版本：<br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/Hexo%E7%89%88%E6%9C%AC.jpg" alt="hexo版本"></p>
+</li>
+<li><p>初始化命令：hexo init ，初始化完成之后打开所在的文件夹可以看到以下文件：<br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E7%9B%AE%E5%BD%95%E7%BB%93%E6%9E%84.jpg" alt="目录结构"></p>
+</li>
+<li><p>解释一下：</p>
+<ul>
+<li>node_modules：是依赖包</li>
+<li>public：存放的是生成的页面</li>
+<li>scaffolds：命令生成文章等的模板</li>
+<li>source：用命令创建的各种文章</li>
+<li>themes：主题</li>
+<li>_config.yml：整个博客的配置</li>
+<li>db.json：source解析所得到的</li>
+<li>package.json：项目所需模块项目的配置信息</li>
+</ul>
+</li>
+<li><p>做好这些前置工作之后接下来的就是各种配置了</p>
+</li>
+</ul>
+<h3 id="5-桥接到github"><a href="#5-桥接到github" class="headerlink" title="5.桥接到github"></a>5.桥接到github</h3><ul>
+<li><p>没账号的创建账号，有账号的看下面。</p>
+</li>
+<li><p>创建一个repo，名称为yourname.github.io, 其中yourname是你的github名称，按照这个规则创建才有用哦，如下：<br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/github%E4%BB%93%E5%BA%93.jpg" alt="github仓库"><br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%88%9B%E5%BB%BA%E6%96%B9%E6%B3%95.jpg" alt="创建方法"></p>
+</li>
+<li><p>回到gitbash中，配置github账户信息（YourName和YourEail都替换成你自己的github用户名和注册github使用的邮箱）：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git config --global user.name &quot;YourName&quot;</span><br><span class="line">git config --global user.email &quot;YourEmail&quot;</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>创建SSH<br>在gitbash中输入：ssh-keygen -t rsa -C “<a href="mailto:youremail@example.com">youremail@example.com</a>，生成ssh。然后按下图的方式找到id_rsa.pub文件的内容。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">cd ~&#x2F;. ssh #检查本机已存在的ssh密钥</span><br></pre></td></tr></table></figure>
+
+<p>如果提示：No such file or directory 说明你是第一次使用git。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh-keygen -t rsa -C &quot;邮件地址&quot;</span><br></pre></td></tr></table></figure>
+
+<p>然后连续3次回车，最终会生成一个文件在用户目录下，打开用户目录，找到.ssh\id_rsa.pub文件，记事本打开并复制里面的内容，打开你的github主页，进入个人设置 -&gt; SSH and GPG keys -&gt; New SSH key：<br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E9%85%8D%E7%BD%AESSHKey.jpg" alt="配置SSHKey"><br>将刚复制的内容粘贴到key那里，title随便填，保存。</p>
+</li>
+</ul>
+<h3 id="6-做到这里就快接近成功了"><a href="#6-做到这里就快接近成功了" class="headerlink" title="6.做到这里就快接近成功了"></a>6.做到这里就快接近成功了</h3><ul>
+<li><p>用编辑器打开你的blog项目，修改_config.yml文件的一些配置(冒号之后都是有一个半角空格的)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">deploy:</span><br><span class="line">  type: git</span><br><span class="line">  repo: git@github.com:YourName&#x2F;YourName.github.io.git</span><br><span class="line">  branch: master</span><br></pre></td></tr></table></figure>
+</li>
+<li><p>回到gitbash中，进入你的blog目录，分别执行以下命令：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server</span><br></pre></td></tr></table></figure>
+
+</li>
+</ul>
+<p>注：hexo 3.0把服务器独立成个别模块，需要单独安装：npm i hexo-server。</p>
+<p>打开浏览器输入：<a href="http://localhost:4000" target="_blank" rel="noopener">http://localhost:4000</a></p>
+<p>接着你就可以遇见天使的微笑了</p>
+<h3 id="7-上传到github"><a href="#7-上传到github" class="headerlink" title="7. 上传到github"></a>7. 上传到github</h3><ul>
+<li><p>先安装一波：npm install hexo-deployer-git –save（这样才能将你写好的文章部署到github服务器上并让别人浏览到）</p>
+</li>
+<li><p>执行命令(建议每次都按照如下步骤部署)：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">hexo clean #(或hexo cl)</span><br><span class="line">hexo generate #(或hexo g)</span><br><span class="line">hexo deploy #(或hexo d)部署到GitHub</span><br></pre></td></tr></table></figure>
+
+<p><strong>注意</strong>deploy的过程中要输入你的username及passward。如下：<br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E9%83%A8%E7%BD%B2%E5%88%B0github.jpg" alt="部署到github"></p>
+</li>
+<li><p>在浏览器中输入<a href="http://yourgithubname.github.io" target="_blank" rel="noopener">http://yourgithubname.github.io</a>就可以看到你的个人博客啦，是不是很兴奋！</p>
+</li>
+<li><p>感觉gitbash中东西太多的时候输入clear命令清空。</p>
+</li>
+</ul>
+<h3 id="8-绑定个人域名"><a href="#8-绑定个人域名" class="headerlink" title="8. 绑定个人域名"></a>8. 绑定个人域名</h3><ul>
+<li>不想绑定的自行忽略</li>
+<li>第一步购买域名：随便在哪个网站买一个就好了，小花是在* 阿里云购买的visugar.com, DNS也是顺道在那买的。</li>
+<li>第二步添加CNAME：在项目的source文件夹下新建一个名为CNAME的文件，在里面添加你购买的域名，比如我添加的是visugar.com，只能添加一个哦。</li>
+<li>到DNS中添加一条记录(域名解析)：<br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/%E5%9F%9F%E5%90%8D%E8%A7%A3%E6%9E%90.jpg" alt="域名解析"></li>
+<li>其中ip地址为你的github的地址，可在cmd中ping一下就能看到(ping yourname.github.io)</li>
+<li>接着再次部署一下，用你购买的域名打开，就可以看到你的博客啦</li>
+</ul>
+<h3 id="9-修改及配置主题"><a href="#9-修改及配置主题" class="headerlink" title="9. 修改及配置主题"></a>9. 修改及配置主题</h3><ul>
+<li>hexo初始化之后默认的主题是landscape , 然后你可以去<a href="https://hexo.io/themes/" target="_blank" rel="noopener">hexo主题</a>里面找到你想要的主题。在github中搜索你要的主题名称，里面都会有该主题的如何使用的介绍，按着来就好了，反正就是改改改！我选的是icarus,看起来挺不错，至少是我喜欢的类型,简洁。<br><img src="/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/icarus.jpg" alt="icarus"></li>
+<li>在根目录下./_config.yml里theme：里配置上你需要的主题就可以了</li>
+<li>跟该主题相关的配置在themes/icarus/_config.yml里面,然后根据你的需要在这就行了，可以修改前端的一些信息。</li>
+<li>重新部署一下就OK啦！</li>
+</ul>
+<h3 id="10-常用hexo命令"><a href="#10-常用hexo命令" class="headerlink" title="10.常用hexo命令"></a>10.常用hexo命令</h3><ul>
+<li>总结一些常用的hexo命令相信可以用到后期你还需了解些markdown语法</li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">hexo new &quot;postName&quot; #新建文章</span><br><span class="line">hexo new page &quot;pageName&quot; #新建页面</span><br><span class="line">hexo generate #生成静态页面至public目录</span><br><span class="line">hexo server #开启预览访问端口（默认端口4000，&#39;ctrl + c&#39;关闭server）</span><br><span class="line">hexo deploy #部署到GitHub</span><br><span class="line">hexo help  # 查看帮助</span><br><span class="line">hexo version  #查看Hexo的版本</span><br></pre></td></tr></table></figure>
+
+<p>缩写</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">hexo n &#x3D;&#x3D; hexo new</span><br><span class="line">hexo g &#x3D;&#x3D; hexo generate</span><br><span class="line">hexo s &#x3D;&#x3D; hexo server</span><br><span class="line">hexo d &#x3D;&#x3D; hexo deploy</span><br></pre></td></tr></table></figure>
+
+<p>组合</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">hexo s -g #生成并本地预览</span><br><span class="line">hexo d -g #生成并上传</span><br></pre></td></tr></table></figure>
+
+<p>同时如需也可以使用&amp;&amp;组合hexo命令使用</p>
+<p>如需了解跟多关注<a href="https://github.com/EricGerry" target="_blank" rel="noopener">github</a></p>
+
+    </div>
+</article>
+
+    <div class="blog-post-comments">
+        <section id="comment">
+            <div id="valine_container" class="valine_thread"></div>
+        </section>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick', 'mail', 'link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'true' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                appId: "TEnoeFH0w3atQfEjCMpzfDOm-gzGzoHsz",
+                appKey: "8GXwVUi9ebKXuqSFR48rkXtK",
+                placeholder: "Just go go",
+                pageSize: '10',
+                avatar: 'mm',
+                lang: 'zh-cn'
+            })
+        </script>
+    </div>
+
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是-Hexo"><span class="toc-number">1.</span> <span class="toc-text">1.什么是 Hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-安装Git"><span class="toc-number">2.</span> <span class="toc-text">2.安装Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-安装NodeJs"><span class="toc-number">3.</span> <span class="toc-text">3. 安装NodeJs</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-安装hexo"><span class="toc-number">4.</span> <span class="toc-text">4. 安装hexo</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-桥接到github"><span class="toc-number">5.</span> <span class="toc-text">5.桥接到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-做到这里就快接近成功了"><span class="toc-number">6.</span> <span class="toc-text">6.做到这里就快接近成功了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#7-上传到github"><span class="toc-number">7.</span> <span class="toc-text">7. 上传到github</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#8-绑定个人域名"><span class="toc-number">8.</span> <span class="toc-text">8. 绑定个人域名</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#9-修改及配置主题"><span class="toc-number">9.</span> <span class="toc-text">9. 修改及配置主题</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#10-常用hexo命令"><span class="toc-number">10.</span> <span class="toc-text">10.常用hexo命令</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/&title=hexo从零开始搭建个人博客"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/&title=hexo从零开始搭建个人博客"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/&text=hexo从零开始搭建个人博客" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=hexo从零开始搭建个人博客&body=Check out this article: http://theoak.online/2019/09/14/hexo%E4%BB%8E%E9%9B%B6%E5%BC%80%E5%A7%8B%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>search</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+<div class="content index py4">
+    
+        <header id="header">
+    <a href="/">
+        
+            
+                <div id="logo" style="background-image: url(/images/Photo_0411_1a.jpg);"></div>
+            
+        
+        <div id="title">
+            <h1>TheOak</h1>
+        </div>
+    </a>
+    <div id="nav">
+        <ul>
+            <li class="icon">
+                <a href="#"><i class="fas fa-bars fa-2x"></i></a>
+            </li>
+            
+                <li><a href="/">Home</a></li>
+            
+                <li><a href="/archives/">Articles</a></li>
+            
+                <li><a href="/categories/">Category</a></li>
+            
+                <li><a href="/tags/">Tag</a></li>
+            
+                <li><a href="/about/">About</a></li>
+            
+                <li><a href="/search/">Search</a></li>
+            
+        </ul>
+    </div>
+</header>
+    
+    <article class="post page" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="content" itemprop="articleBody">
+        
+            <section id="search">
+    <form>
+        <input type="text" class="search-input" id="search-input" placeholder="Search...">
+    </form>
+    <div id="search-result"></div>
+    <p class="search-no-result">No results found.</p>
+</section>
+        
+    </div>
+</article>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+    
+<script src="/js/search.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+
+            var $inputArea = $("input#search-input");
+            var $resultArea = document.querySelector("div#search-result");
+
+            $inputArea.focus(function () {
+                var search_path = "search.xml";
+                if (search_path.length == 0) {
+                    search_path = "search.xml";
+                }
+                var path = "/" + search_path;
+                searchFunc(path, 'search-input', 'search-result');
+            });
+
+            $inputArea.keydown(function (e) {
+                if (e.which == 13) {
+                    e.preventDefault();
+                }
+            });
+
+            var observer = new MutationObserver(function (mutationsList, observer) {
+                if (mutationsList[0].addedNodes) {
+                    $(".search-no-result").show(200);
+                } else {
+                    $(".search-no-result").hide();
+                }
+            });
+
+            observer.observe($resultArea, {childList: true});
+
+        });
+    </script>
+
+</body>
+
+</html>

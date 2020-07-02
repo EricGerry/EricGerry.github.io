@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>idea常用的一些插件</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/about/">About</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2020/03/13/hexo%E6%9C%AC%E5%9C%B0%E5%9B%BE%E7%89%87%E4%B8%8D%E6%98%BE%E7%A4%BA/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/&title=idea常用的一些插件"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/&title=idea常用的一些插件"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/&text=idea常用的一些插件" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=idea常用的一些插件&body=Check out this article: http://theoak.online/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Background-Image-Plus"><span class="toc-number">1.</span> <span class="toc-text">1.Background Image Plus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-CodeGlance"><span class="toc-number">2.</span> <span class="toc-text">2.CodeGlance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Translation"><span class="toc-number">3.</span> <span class="toc-text">3.Translation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Rainbow-Brackets"><span class="toc-number">4.</span> <span class="toc-text">4.Rainbow Brackets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Statistic"><span class="toc-number">5.</span> <span class="toc-text">5.Statistic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Lombok"><span class="toc-number">6.</span> <span class="toc-text">6.Lombok</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Lombok到底是什么"><span class="toc-number">6.1.</span> <span class="toc-text">Lombok到底是什么</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        idea常用的一些插件
+    </h1>
+
+        <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">
+            EricGerry
+            
+        </span>
+      </span>
+            
+    <div class="postdate">
+        
+            <time datetime="2020-03-15T14:55:57.000Z"
+                  itemprop="datePublished">2020-03-15</time>
+            
+                (Updated:
+                <time datetime="2020-04-17T10:12:50.511Z"
+                      itemprop="dateModified">2020-04-17</time>)
+            
+        
+    </div>
+
+            
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/idea/">idea</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/idea/" rel="tag">idea</a>
+    </div>
+
+        </div>
+    </header>
+    
+    <div class="content" itemprop="articleBody">
+        <p><img src="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/idea%E6%8F%92%E4%BB%B6.jpg" alt="idea插件"></p>
+<p>今天给分享一下中常用的几款能提升幸福感IDEA插件</p>
+<hr>
+<h3 id="1-Background-Image-Plus"><a href="#1-Background-Image-Plus" class="headerlink" title="1.Background Image Plus"></a>1.Background Image Plus</h3><a id="more"></a>
+<p>默认IDEA的背景一般都比较单调，要么白乎乎，要么褐乎乎，而Background Image Plus这个插件可以为IDEA设置自定义图片作为背景，而且还可以设置透明度，从此写代码乐趣十足</p>
+<p><strong>背景图设置效果如下：</strong></p>
+<p><img src="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/Background.png" alt="Background Image Plus"></p>
+<hr>
+<h3 id="2-CodeGlance"><a href="#2-CodeGlance" class="headerlink" title="2.CodeGlance"></a>2.CodeGlance</h3><p>CodeGlance是一款非常好用的代码地图插件，可以在代码编辑区的右侧生成一个竖向可拖动的代码缩略区，可以快速定位代码的同时，并且提供放大镜功能</p>
+<p><strong>右侧代码缩略图效果:</strong></p>
+<p><img src="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/CodeGlance.jpg" alt="codeGlance"></p>
+<hr>
+<h3 id="3-Translation"><a href="#3-Translation" class="headerlink" title="3.Translation"></a>3.Translation</h3><p>代码中经常遇到不认识的英文单词或者句子，很懵怎么办？</p>
+<p>Translation是一款非常好用的翻译插件，可以随时随地翻译单词、甚至一段话，从此不再需要额外打开浏览器搜索翻译网站了！</p>
+<p><img src="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/TranslationIn.jpg" alt="TranslationIn"></p>
+<p><strong>翻译逐个单词：</strong></p>
+<p><img src="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/%E7%BF%BB%E8%AF%91%E5%8D%95%E8%AF%8D.jpg" alt="翻译单词"></p>
+<p><strong>翻译一段话：</strong></p>
+<p><img src="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/%E7%BF%BB%E8%AF%91%E4%B8%80%E6%AE%B5%E8%AF%9D.jpg" alt="翻译一段话"></p>
+<hr>
+<h3 id="4-Rainbow-Brackets"><a href="#4-Rainbow-Brackets" class="headerlink" title="4.Rainbow Brackets"></a>4.Rainbow Brackets</h3><p>在代码非常复杂时，各种俄罗斯套娃式的括号简直让人心碎，Rainbow Brackets则是一款可以对成对括号进行着色的插件，顾名思义“彩虹色的括号”，从此复杂代码一眼即可看穿！</p>
+<p>装完插件，括号都被染上了彩虹的颜色</p>
+<p><img src="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/RainbowBrackets.jpg" alt="Rainbow Brackets"></p>
+<hr>
+<h3 id="5-Statistic"><a href="#5-Statistic" class="headerlink" title="5.Statistic"></a>5.Statistic</h3><p>天天闷头写代码！</p>
+<ul>
+<li>你知道你项目到底有多少行代码吗？</li>
+<li>你知道项目代码里有多少是实际代码？</li>
+<li>有多少是空行？</li>
+<li>有多少是注释吗？</li>
+<li>. . .</li>
+</ul>
+<p>Statistic则是一款可以做项目全局代码统计信息的小插件</p>
+<p><img src="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/Statistic.jpg" alt="Statistic"></p>
+<hr>
+<h3 id="6-Lombok"><a href="#6-Lombok" class="headerlink" title="6.Lombok"></a>6.Lombok</h3><h4 id="Lombok到底是什么"><a href="#Lombok到底是什么" class="headerlink" title="Lombok到底是什么"></a>Lombok到底是什么</h4><p>先看一下它的官网<br><img src="/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/lombok%E5%AE%98%E7%BD%91.jpg" alt="lombok官网"><br><strong>大致意思是：</strong> Lombok是一个很牛批的插件（本质是个Java库），项目里一旦引入了Lombok之后，你项目中所有诸如：对象的构造函数、 equals()方法，属性的 get()/set()方法等等，这些没有技术含量的代码统统都不用写了，Lombok帮你搞定一切，全部帮你自动生成。<br>总之很香就是啦，后面会写一篇有关于lombok的博客！</p>
+
+    </div>
+</article>
+
+    <div class="blog-post-comments">
+        <section id="comment">
+            <div id="valine_container" class="valine_thread"></div>
+        </section>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick', 'mail', 'link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'true' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                appId: "TEnoeFH0w3atQfEjCMpzfDOm-gzGzoHsz",
+                appKey: "8GXwVUi9ebKXuqSFR48rkXtK",
+                placeholder: "Just go go",
+                pageSize: '10',
+                avatar: 'mm',
+                lang: 'zh-cn'
+            })
+        </script>
+    </div>
+
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Background-Image-Plus"><span class="toc-number">1.</span> <span class="toc-text">1.Background Image Plus</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-CodeGlance"><span class="toc-number">2.</span> <span class="toc-text">2.CodeGlance</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Translation"><span class="toc-number">3.</span> <span class="toc-text">3.Translation</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Rainbow-Brackets"><span class="toc-number">4.</span> <span class="toc-text">4.Rainbow Brackets</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Statistic"><span class="toc-number">5.</span> <span class="toc-text">5.Statistic</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Lombok"><span class="toc-number">6.</span> <span class="toc-text">6.Lombok</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#Lombok到底是什么"><span class="toc-number">6.1.</span> <span class="toc-text">Lombok到底是什么</span></a></li></ol></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/&title=idea常用的一些插件"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/&title=idea常用的一些插件"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/&text=idea常用的一些插件" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=idea常用的一些插件&body=Check out this article: http://theoak.online/2020/03/15/idea%E5%B8%B8%E7%94%A8%E7%9A%84%E4%B8%80%E4%BA%9B%E6%8F%92%E4%BB%B6/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>

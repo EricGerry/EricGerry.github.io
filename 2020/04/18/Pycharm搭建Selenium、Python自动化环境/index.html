@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>Pycharm搭建Selenium、Python自动化环境</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/about/">About</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+          
+              <li><a class="icon" href="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/&title=Pycharm搭建Selenium、Python自动化环境"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/&title=Pycharm搭建Selenium、Python自动化环境"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/&text=Pycharm搭建Selenium、Python自动化环境" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Pycharm搭建Selenium、Python自动化环境&body=Check out this article: http://theoak.online/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境安装"><span class="toc-number">1.</span> <span class="toc-text">环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python安装"><span class="toc-number">1.1.</span> <span class="toc-text">Python安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Pycharm"><span class="toc-number">1.2.</span> <span class="toc-text">安装Pycharm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Selenium"><span class="toc-number">1.3.</span> <span class="toc-text">安装Selenium</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化搭建"><span class="toc-number">2.</span> <span class="toc-text">自动化搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#确定当前浏览器版本"><span class="toc-number">2.1.</span> <span class="toc-text">确定当前浏览器版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载对应版本驱动chromedriver"><span class="toc-number">3.</span> <span class="toc-text">下载对应版本驱动chromedriver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用例编写测试"><span class="toc-number">4.</span> <span class="toc-text">用例编写测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动pycharm，创建一个项目，File-New-Project-Location，更改位置，创建test项目"><span class="toc-number">4.1.</span> <span class="toc-text">启动pycharm，创建一个项目，File-New Project-Location，更改位置，创建test项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在test下创建一个python-package"><span class="toc-number">4.2.</span> <span class="toc-text">在test下创建一个python package</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#包下创建一个Python文件"><span class="toc-number">4.3.</span> <span class="toc-text">包下创建一个Python文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写代码通过谷歌浏览器访问TheOak"><span class="toc-number">4.4.</span> <span class="toc-text">写代码通过谷歌浏览器访问TheOak</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        Pycharm搭建Selenium、Python自动化环境
+    </h1>
+
+        <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">
+            EricGerry
+            
+        </span>
+      </span>
+            
+    <div class="postdate">
+        
+            <time datetime="2020-04-18T11:08:00.000Z"
+                  itemprop="datePublished">2020-04-18</time>
+            
+                (Updated:
+                <time datetime="2020-04-18T14:21:28.852Z"
+                      itemprop="dateModified">2020-04-18</time>)
+            
+        
+    </div>
+
+            
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Python/">Python</a> › <a class="category-link" href="/categories/Python/%E6%B5%8B%E8%AF%95/">测试</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Pycharm/" rel="tag">Pycharm</a>, <a class="tag-link" href="/tags/Python/" rel="tag">Python</a>, <a class="tag-link" href="/tags/Selenium/" rel="tag">Selenium</a>, <a class="tag-link" href="/tags/chromdriver/" rel="tag">chromdriver</a>, <a class="tag-link" href="/tags/%E6%B5%8B%E8%AF%95/" rel="tag">测试</a>
+    </div>
+
+        </div>
+    </header>
+    
+    <div class="content" itemprop="articleBody">
+        <p><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/python.jpg" alt="我用Python"><br><a href="https://pan.baidu.com/s/1tiwcFLKU11WpmJ4flgNjMg" target="_blank" rel="noopener">Pycharm、Python</a>下载<br>提取码：ided</p>
+<h2 id="环境安装"><a href="#环境安装" class="headerlink" title="环境安装"></a>环境安装</h2><h3 id="Python安装"><a href="#Python安装" class="headerlink" title="Python安装"></a>Python安装</h3><a id="more"></a>
+<p><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/python%E4%B8%8B%E8%BD%BD%E6%89%80%E5%9C%A8%E7%9B%AE%E5%BD%95.jpg" alt="下载文件所在目录"></p>
+<p>勾选<strong>Add Python to Path</strong>添加环境变量</p>
+<p><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/%E5%AE%89%E8%A3%85.jpg" alt="进行安装"></p>
+<p>点击<strong>install</strong>进行安装</p>
+<p>验证Python和环境变量是否配置成功：</p>
+<p>win+r 输入cmd以管理员方式运行，在dos窗口下输入python出现如下窗口则说明你就成功啦<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/%E6%9F%A5%E7%9C%8BPython.jpg" alt="查看Python"></p>
+<hr>
+<h3 id="安装Pycharm"><a href="#安装Pycharm" class="headerlink" title="安装Pycharm"></a>安装Pycharm</h3><p>点击安装Pycharm<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/Pycharm.jpg" alt="Pycharm"></p>
+<p>安装好后，点击启动后，点击新建项目，配置Project Interpreter下Base interpreter中选择刚刚安装的python文件，此时创建，则pycharm的python环境搭建完成，参考图见下：<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/Pycharm%E9%85%8D%E7%BD%AE.jpg" alt="Pycharm配置"></p>
+<p>以上pycharm中的python环境已搭建完成，我们现在开始配置selenium环境；</p>
+<hr>
+<h3 id="安装Selenium"><a href="#安装Selenium" class="headerlink" title="安装Selenium"></a>安装Selenium</h3><p>点击pycharm的File-Settings-Project:Pycharm-Project Interpreter，点击窗口右侧绿色的“+”按钮，搜索“selenium”，搜索后点击添加，安装OK之后，如图中所示，直接会在窗口中显示<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/Selenium%E4%B8%8B%E8%BD%BD%E5%AE%89%E8%A3%85.jpg" alt="Selenium下载安装"></p>
+<p>安装成功之后，就会显示在面板上，如下图：<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/selenium%E5%AE%89%E8%A3%85%E6%88%90%E5%8A%9F.jpg" alt="selenium安装成功"></p>
+<p><strong><em>接下来我们就可以愉快的写我们的自动化测试代码啦！</em></strong></p>
+<p><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/%E5%86%B2%E9%B8%AD.jpg" alt="***冲鸭！***"></p>
+<h2 id="自动化搭建"><a href="#自动化搭建" class="headerlink" title="自动化搭建"></a>自动化搭建</h2><h3 id="确定当前浏览器版本"><a href="#确定当前浏览器版本" class="headerlink" title="确定当前浏览器版本"></a>确定当前浏览器版本</h3><p>确定好Chrome浏览器版本号，浏览器右上角三个点-帮助-关于Google Chrome，就能看到当前版本号，我的是版本是81.0.4044.113（正式版本）（64 位），确定好之后接下来我们要去找到对应的chromedirver驱动；<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/chrome%E7%89%88%E6%9C%AC.jpg" alt="Chrome版本"></p>
+<h2 id="下载对应版本驱动chromedriver"><a href="#下载对应版本驱动chromedriver" class="headerlink" title="下载对应版本驱动chromedriver"></a>下载对应版本驱动chromedriver</h2><p>这里我们依赖淘宝的镜像下载<a href="http://npm.taobao.org/mirrors/chromedriver/" target="_blank" rel="noopener">ChromeDriver</a></p>
+<p>注意下载的版本要一致，我们这里下载的是81.0.4044.69<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/%E4%B8%8B%E8%BD%BD%E7%9A%84chromedriver%E7%89%88%E6%9C%AC.jpg" alt="chromedriver版本"></p>
+<p> 下载chromedriver后，将chromedriver文件放到python目录下<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/chromedriver%E5%AD%98%E6%94%BE%E7%9B%AE%E5%BD%95.jpg" alt="chromedriver存放目录"></p>
+<h2 id="用例编写测试"><a href="#用例编写测试" class="headerlink" title="用例编写测试"></a>用例编写测试</h2><h3 id="启动pycharm，创建一个项目，File-New-Project-Location，更改位置，创建test项目"><a href="#启动pycharm，创建一个项目，File-New-Project-Location，更改位置，创建test项目" class="headerlink" title="启动pycharm，创建一个项目，File-New Project-Location，更改位置，创建test项目"></a>启动pycharm，创建一个项目，File-New Project-Location，更改位置，创建test项目</h3><p><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/testProject.jpg" alt="test"></p>
+<h3 id="在test下创建一个python-package"><a href="#在test下创建一个python-package" class="headerlink" title="在test下创建一个python package"></a>在test下创建一个python package</h3><p>  右击test-New-Python Package，输入包名：testbag;<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/testbag.jpg" alt="testbag"></p>
+<h3 id="包下创建一个Python文件"><a href="#包下创建一个Python文件" class="headerlink" title="包下创建一个Python文件"></a>包下创建一个Python文件</h3><p>  右击testbag-New-Python File，输入名字：testDemo<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/testDemo.jpg" alt="testDemo"></p>
+<h3 id="写代码通过谷歌浏览器访问TheOak"><a href="#写代码通过谷歌浏览器访问TheOak" class="headerlink" title="写代码通过谷歌浏览器访问TheOak"></a>写代码通过谷歌浏览器访问<a href="http://www.theoak.online/" target="_blank" rel="noopener">TheOak</a></h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">from</span> selenium <span class="keyword">import</span> webdriver</span><br><span class="line"><span class="keyword">import</span> time</span><br><span class="line"></span><br><span class="line">driver = webdriver.Chrome()</span><br><span class="line">driver.get(<span class="string">"http://www.theoak.online/"</span>)</span><br><span class="line">time.sleep(<span class="number">10</span>)</span><br><span class="line">driver.close()</span><br></pre></td></tr></table></figure>
+
+<p>右键直接run就可以了，当浏览器能自动打开，就证明一切OK了，就像这样呀<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/TheOak.jpg" alt="TheOak"><br>以上selenium+pycharm 自动化环境搭建完成了</p>
+<p>今天又是美好的一天，加油呀！铁铁<br><img src="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/%E5%8A%A0%E6%B2%B9%E9%B8%AD%EF%BC%81.jpg" alt="加油鸭！"></p>
+
+    </div>
+</article>
+
+    <div class="blog-post-comments">
+        <section id="comment">
+            <div id="valine_container" class="valine_thread"></div>
+        </section>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick', 'mail', 'link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'true' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                appId: "TEnoeFH0w3atQfEjCMpzfDOm-gzGzoHsz",
+                appKey: "8GXwVUi9ebKXuqSFR48rkXtK",
+                placeholder: "Just go go",
+                pageSize: '10',
+                avatar: 'mm',
+                lang: 'zh-cn'
+            })
+        </script>
+    </div>
+
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#环境安装"><span class="toc-number">1.</span> <span class="toc-text">环境安装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Python安装"><span class="toc-number">1.1.</span> <span class="toc-text">Python安装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Pycharm"><span class="toc-number">1.2.</span> <span class="toc-text">安装Pycharm</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#安装Selenium"><span class="toc-number">1.3.</span> <span class="toc-text">安装Selenium</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#自动化搭建"><span class="toc-number">2.</span> <span class="toc-text">自动化搭建</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#确定当前浏览器版本"><span class="toc-number">2.1.</span> <span class="toc-text">确定当前浏览器版本</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#下载对应版本驱动chromedriver"><span class="toc-number">3.</span> <span class="toc-text">下载对应版本驱动chromedriver</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用例编写测试"><span class="toc-number">4.</span> <span class="toc-text">用例编写测试</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#启动pycharm，创建一个项目，File-New-Project-Location，更改位置，创建test项目"><span class="toc-number">4.1.</span> <span class="toc-text">启动pycharm，创建一个项目，File-New Project-Location，更改位置，创建test项目</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#在test下创建一个python-package"><span class="toc-number">4.2.</span> <span class="toc-text">在test下创建一个python package</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#包下创建一个Python文件"><span class="toc-number">4.3.</span> <span class="toc-text">包下创建一个Python文件</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写代码通过谷歌浏览器访问TheOak"><span class="toc-number">4.4.</span> <span class="toc-text">写代码通过谷歌浏览器访问TheOak</span></a></li></ol></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/&title=Pycharm搭建Selenium、Python自动化环境"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/&title=Pycharm搭建Selenium、Python自动化环境"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/&text=Pycharm搭建Selenium、Python自动化环境" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Pycharm搭建Selenium、Python自动化环境&body=Check out this article: http://theoak.online/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>
