@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>Java_Github_Crawler</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/about/">About</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2020/04/18/Pycharm%E6%90%AD%E5%BB%BASelenium%E3%80%81Python%E8%87%AA%E5%8A%A8%E5%8C%96%E7%8E%AF%E5%A2%83/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2020/03/19/Lombok%E5%8F%AF%E7%9C%9F%E9%A6%99%EF%BC%81%EF%BC%81%EF%BC%81/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/03/21/Java-Github-Crawler/&title=Java_Github_Crawler"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/03/21/Java-Github-Crawler/&title=Java_Github_Crawler"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/03/21/Java-Github-Crawler/&text=Java_Github_Crawler" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Java_Github_Crawler&body=Check out this article: http://theoak.online/2020/03/21/Java-Github-Crawler/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-github-crawler"><span class="toc-number">1.</span> <span class="toc-text">java_github_crawler</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取所有待收集信息的项目列表"><span class="toc-number">1.1.</span> <span class="toc-text">获取所有待收集信息的项目列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何获取页面内容：构造一个http请求发送给服务器"><span class="toc-number">1.1.1.</span> <span class="toc-text">如何获取页面内容：构造一个http请求发送给服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何分析页面结构"><span class="toc-number">1.1.2.</span> <span class="toc-text">如何分析页面结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历项目列表，依次获取到每个项目的主页信息，进一步就可以知道该项目的star-fork-open-issue"><span class="toc-number">1.2.</span> <span class="toc-text">遍历项目列表，依次获取到每个项目的主页信息，进一步就可以知道该项目的star fork open_issue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通过API来获取某个项目-仓库的相关信息"><span class="toc-number">1.2.1.</span> <span class="toc-text">通过API来获取某个项目&#x2F;仓库的相关信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过JSON数据格式保存相关信息"><span class="toc-number">1.2.2.</span> <span class="toc-text">通过JSON数据格式保存相关信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把这些数据保存到数据库中"><span class="toc-number">1.3.</span> <span class="toc-text">把这些数据保存到数据库中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建表结构"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建表结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现ProjectDao"><span class="toc-number">1.3.2.</span> <span class="toc-text">实现ProjectDao</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#抓取时可能出现的问题"><span class="toc-number">1.3.3.</span> <span class="toc-text">抓取时可能出现的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-出现异常"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">1.出现异常</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-程序执行速度太慢了-如何进行性能优化"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">2.程序执行速度太慢了.如何进行性能优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写一个简单网页服务器，来展示数据库中的数据-通过图表的的形式，看到一个更直观的排名效果"><span class="toc-number">1.4.</span> <span class="toc-text">写一个简单网页服务器，来展示数据库中的数据(通过图表的的形式，看到一个更直观的排名效果)</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        Java_Github_Crawler
+    </h1>
+
+        <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">
+            EricGerry
+            
+        </span>
+      </span>
+            
+    <div class="postdate">
+        
+            <time datetime="2020-03-21T00:48:36.000Z"
+                  itemprop="datePublished">2020-03-21</time>
+            
+                (Updated:
+                <time datetime="2020-07-06T00:54:38.699Z"
+                      itemprop="dateModified">2020-07-06</time>)
+            
+        
+    </div>
+
+            
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/java/">java</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Crawler/" rel="tag">Crawler</a>, <a class="tag-link" href="/tags/Github/" rel="tag">Github</a>, <a class="tag-link" href="/tags/java/" rel="tag">java</a>
+    </div>
+
+        </div>
+    </header>
+    
+    <div class="content" itemprop="articleBody">
+        <h2 id="java-github-crawler"><a href="#java-github-crawler" class="headerlink" title="java_github_crawler"></a>java_github_crawler</h2><blockquote>
+<p>爬取Github上的一些java中的知名项目，做一个简单的类似GitHub趋势功能的程序。在awesome-java项目中可以看到很多的java开源的第三方库和框架，点进去可以看到很具体的页面后，可以看到该项目中的一些具体信息(star,fork,open_issue)，于是收集这些项目的这些属性，衡量出这一大堆项目中，哪些项目是比较活跃和流行的，最终需求，是给awesome-java这个项目中提到的所有的github上的项目按照活跃程度进行排序。形成一个类似于Github趋势的小程序。</p>
+</blockquote>
+<hr>
+<h3 id="获取所有待收集信息的项目列表"><a href="#获取所有待收集信息的项目列表" class="headerlink" title="获取所有待收集信息的项目列表"></a>获取所有待收集信息的项目列表</h3><p>使用爬虫程序，获取到<a href="https://github.com/akullpp/awesome-java/blob/master/README.md" target="_blank" rel="noopener">awesome-java</a>这个页面的内容，进而知道所有项目的链接信息。<br>分析页面的结构，可以看到，入口页面中包含很多url，每个url中又有很多a标签，a标签中href属性里的url就是我们要获到的内容。</p>
+<h4 id="如何获取页面内容：构造一个http请求发送给服务器"><a href="#如何获取页面内容：构造一个http请求发送给服务器" class="headerlink" title="如何获取页面内容：构造一个http请求发送给服务器"></a>如何获取页面内容：构造一个http请求发送给服务器</h4><p>通过<a href="https://square.github.io/okhttp/" target="_blank" rel="noopener">OkHttp</a>这个库，就能根据url获取到对应的页面的内容，内容一般是一个html页面,具体使用方法参考<a href="https://square.github.io/okhttp/" target="_blank" rel="noopener">官方文档</a>。</p>
+<blockquote>
+<p>OkHttp这个库是使用Kotlin(一种编程语言，和java类似，都是把代码编译生成JVM的字节码)</p>
+</blockquote>
+<h4 id="如何分析页面结构"><a href="#如何分析页面结构" class="headerlink" title="如何分析页面结构"></a>如何分析页面结构</h4><p>采用<a href="https://jsoup.org/" target="_blank" rel="noopener">JSoup</a>分析网页结构，JSoup是一个用于处理实际HTML的Java库。它使用HTML5最佳DOM方法和CSS选择器，为获取URL以及提取和处理数据提供了非常方便的API。，具体使用参考官方文档。</p>
+<p>HTML是一个树形结构，JSoup中的Document对象对应着一个树形结构。树中的每个标签，就是一个Element对象，把很多标签放在一起构成的集合，就是Elements。</p>
+<ul>
+<li>先获取li标签得到Element对象针对这个对象再次findElementByTag(“a”)获取到a标签中的内容</li>
+<li>JSoup支持CSS风格的选择器语法。</li>
+</ul>
+<hr>
+<h3 id="遍历项目列表，依次获取到每个项目的主页信息，进一步就可以知道该项目的star-fork-open-issue"><a href="#遍历项目列表，依次获取到每个项目的主页信息，进一步就可以知道该项目的star-fork-open-issue" class="headerlink" title="遍历项目列表，依次获取到每个项目的主页信息，进一步就可以知道该项目的star fork open_issue"></a>遍历项目列表，依次获取到每个项目的主页信息，进一步就可以知道该项目的star fork open_issue</h3><h4 id="通过API来获取某个项目-仓库的相关信息"><a href="#通过API来获取某个项目-仓库的相关信息" class="headerlink" title="通过API来获取某个项目/仓库的相关信息"></a>通过API来获取某个项目/仓库的相关信息</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl https:&#x2F;&#x2F;api.github.com&#x2F;repos&#x2F;[用户名]&#x2F;[仓库名]</span><br></pre></td></tr></table></figure>
+
+<h4 id="通过JSON数据格式保存相关信息"><a href="#通过JSON数据格式保存相关信息" class="headerlink" title="通过JSON数据格式保存相关信息"></a>通过JSON数据格式保存相关信息</h4><p>Github API获取到的数据格式是JSON格式是一种非常广泛使用的数据组织格式,特点是以键值对的的方式来组织数据。基本规则: {}包裹里面包含若干个键值对.键值对和键值对之间使用,分割。键和值之间使用:分割，进而获取要爬取的关键信息(每个项目的相关指标)，以JSON格式保存。</p>
+<p>Java中有很多第三方库帮我们解析，JSON源自于JavaScript这个语言。通过JSON来表示对象。JSON比XML好用很多。GSON google出品的一个JSON解析库。</p>
+<hr>
+<h3 id="把这些数据保存到数据库中"><a href="#把这些数据保存到数据库中" class="headerlink" title="把这些数据保存到数据库中"></a>把这些数据保存到数据库中</h3><h4 id="创建表结构"><a href="#创建表结构" class="headerlink" title="创建表结构"></a>创建表结构</h4><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">create database java_github_crawler;</span><br><span class="line">use java_github_crawler;</span><br><span class="line">create table project_table(</span><br><span class="line">    name varchar(50),url varchar(1024),</span><br><span class="line">    description varchar(1024),starCount int,</span><br><span class="line">    forkCount int, openedIssueCount int, date varchar(128)</span><br><span class="line">);</span><br></pre></td></tr></table></figure>
+
+<h4 id="实现ProjectDao"><a href="#实现ProjectDao" class="headerlink" title="实现ProjectDao"></a>实现ProjectDao</h4><p>先创建Connection,再根据Connection创建PrepareStatement，通过PrepareStatement获取到ResultSet。关闭的时候,也要先关闭ResultSet,然后关闭PrepareStatement,最后关闭Connection。</p>
+<h4 id="抓取时可能出现的问题"><a href="#抓取时可能出现的问题" class="headerlink" title="抓取时可能出现的问题"></a>抓取时可能出现的问题</h4><h5 id="1-出现异常"><a href="#1-出现异常" class="headerlink" title="1.出现异常"></a>1.出现异常</h5><p>当前这个url对应的不是一个github的项目.前面把这些不是项目的url放到一个黑名单里面了(没放干净)。我们真正应该保证的是,抓取过程中任何一个项目出现异常,不要影响到后面的抓取.用try catch把抓取的循环包裹起来。</p>
+<h5 id="2-程序执行速度太慢了-如何进行性能优化"><a href="#2-程序执行速度太慢了-如何进行性能优化" class="headerlink" title="2.程序执行速度太慢了.如何进行性能优化"></a>2.程序执行速度太慢了.如何进行性能优化</h5><p>打印出每个环节的时间，可以看到性能最差的就是循环调用Github API这个操作是访问网络;访问的还是一个外国的服务器。<br>大量的时间都消耗在等待服务器响应上了。一次服务器的响应时间， 这基本是固定. (取决于网络环境)<br>实现批量发送的方式，有很多种方式使用多线程方式来发送数据。例如我想批量发送10个数据就创建10个线程.每个线程负责等待自己的结构</p>
+<hr>
+<h3 id="写一个简单网页服务器，来展示数据库中的数据-通过图表的的形式，看到一个更直观的排名效果"><a href="#写一个简单网页服务器，来展示数据库中的数据-通过图表的的形式，看到一个更直观的排名效果" class="headerlink" title="写一个简单网页服务器，来展示数据库中的数据(通过图表的的形式，看到一个更直观的排名效果)"></a>写一个简单网页服务器，来展示数据库中的数据(通过图表的的形式，看到一个更直观的排名效果)</h3><ul>
+<li>1.扩充ProjectDao类,新增一个方法,能够按照指定日期来获取数据库中的信息</li>
+<li>2.写一个简单的Servlet,提供-个HTTP的接口，让前端可以通过这个接口来获取到数据</li>
+<li>3.写一个网页,在网页上获取到数据,并展示成图表EChart 百度提供的一个开源的图表组件，使用方法具体参考<br><a href="https://www.echartsjs.com/zh/tutorial.html#5%20%E5%88%86%E9%92%9F%E4%B8%8A%E6%89%8B%20ECharts" target="_blank" rel="noopener">官方文档</a><br><a href="https://www.echartsjs.com/zh/builder.html" target="_blank" rel="noopener">下载安装</a></li>
+</ul>
+<hr>
+<p><a href="http://47.93.16.83:8080/java_github_crawler/index.html" target="_blank" rel="noopener">项目演示</a></p>
+
+    </div>
+</article>
+
+    <div class="blog-post-comments">
+        <section id="comment">
+            <div id="valine_container" class="valine_thread"></div>
+        </section>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick', 'mail', 'link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'true' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                appId: "TEnoeFH0w3atQfEjCMpzfDOm-gzGzoHsz",
+                appKey: "8GXwVUi9ebKXuqSFR48rkXtK",
+                placeholder: "Just go go",
+                pageSize: '10',
+                avatar: 'mm',
+                lang: 'zh-cn'
+            })
+        </script>
+    </div>
+
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#java-github-crawler"><span class="toc-number">1.</span> <span class="toc-text">java_github_crawler</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#获取所有待收集信息的项目列表"><span class="toc-number">1.1.</span> <span class="toc-text">获取所有待收集信息的项目列表</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#如何获取页面内容：构造一个http请求发送给服务器"><span class="toc-number">1.1.1.</span> <span class="toc-text">如何获取页面内容：构造一个http请求发送给服务器</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#如何分析页面结构"><span class="toc-number">1.1.2.</span> <span class="toc-text">如何分析页面结构</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#遍历项目列表，依次获取到每个项目的主页信息，进一步就可以知道该项目的star-fork-open-issue"><span class="toc-number">1.2.</span> <span class="toc-text">遍历项目列表，依次获取到每个项目的主页信息，进一步就可以知道该项目的star fork open_issue</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#通过API来获取某个项目-仓库的相关信息"><span class="toc-number">1.2.1.</span> <span class="toc-text">通过API来获取某个项目&#x2F;仓库的相关信息</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#通过JSON数据格式保存相关信息"><span class="toc-number">1.2.2.</span> <span class="toc-text">通过JSON数据格式保存相关信息</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#把这些数据保存到数据库中"><span class="toc-number">1.3.</span> <span class="toc-text">把这些数据保存到数据库中</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#创建表结构"><span class="toc-number">1.3.1.</span> <span class="toc-text">创建表结构</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#实现ProjectDao"><span class="toc-number">1.3.2.</span> <span class="toc-text">实现ProjectDao</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#抓取时可能出现的问题"><span class="toc-number">1.3.3.</span> <span class="toc-text">抓取时可能出现的问题</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#1-出现异常"><span class="toc-number">1.3.3.1.</span> <span class="toc-text">1.出现异常</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#2-程序执行速度太慢了-如何进行性能优化"><span class="toc-number">1.3.3.2.</span> <span class="toc-text">2.程序执行速度太慢了.如何进行性能优化</span></a></li></ol></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#写一个简单网页服务器，来展示数据库中的数据-通过图表的的形式，看到一个更直观的排名效果"><span class="toc-number">1.4.</span> <span class="toc-text">写一个简单网页服务器，来展示数据库中的数据(通过图表的的形式，看到一个更直观的排名效果)</span></a></li></ol></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/03/21/Java-Github-Crawler/&title=Java_Github_Crawler"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/03/21/Java-Github-Crawler/&title=Java_Github_Crawler"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/03/21/Java-Github-Crawler/&text=Java_Github_Crawler" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=Java_Github_Crawler&body=Check out this article: http://theoak.online/2020/03/21/Java-Github-Crawler/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>
