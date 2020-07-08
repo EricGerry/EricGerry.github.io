@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>深入理解Java面向对象三大特性封装、继承、多态</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/about/">About</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2019/08/15/JSP%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E4%B8%8EHTML%E7%9A%84%E5%8C%BA%E5%88%AB/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2019/03/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81/&title=深入理解Java面向对象三大特性封装、继承、多态"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2019/03/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81/&title=深入理解Java面向对象三大特性封装、继承、多态"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2019/03/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81/&text=深入理解Java面向对象三大特性封装、继承、多态" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=深入理解Java面向对象三大特性封装、继承、多态&body=Check out this article: http://theoak.online/2019/03/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-封装"><span class="toc-number">1.</span> <span class="toc-text">1.封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-封装的定义"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 封装的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-为什么需要封装"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 为什么需要封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-实现"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-继承"><span class="toc-number">2.</span> <span class="toc-text">2. 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Java的类可以分为三类"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Java的类可以分为三类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-在这三个类型之间存在如下关系"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 在这三个类型之间存在如下关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-继承以后子类可以得到什么"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 继承以后子类可以得到什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-关于构造函数"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 关于构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-为什么需要继承"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 为什么需要继承</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-多态"><span class="toc-number">3.</span> <span class="toc-text">3. 多态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-在了解多态之前，首先需要知道方法的唯一性标识即什么是相同-不同的方法"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 在了解多态之前，首先需要知道方法的唯一性标识即什么是相同&#x2F;不同的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-何谓重载"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 何谓重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-何谓覆盖-重写"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 何谓覆盖&#x2F;重写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-覆盖-重写的规则"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 覆盖&#x2F;重写的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-理解了上述知识点，就可以定义多态了"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 理解了上述知识点，就可以定义多态了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-向上转型的缺憾"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 向上转型的缺憾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-总结概括"><span class="toc-number">3.7.</span> <span class="toc-text">3.7 总结概括</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        深入理解Java面向对象三大特性封装、继承、多态
+    </h1>
+
+        <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">
+            EricGerry
+            
+        </span>
+      </span>
+            
+    <div class="postdate">
+        
+            <time datetime="2019-03-08T06:34:52.000Z"
+                  itemprop="datePublished">2019-03-08</time>
+            
+                (Updated:
+                <time datetime="2020-07-08T06:59:49.642Z"
+                      itemprop="dateModified">2020-07-08</time>)
+            
+        
+    </div>
+
+            
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/java/">java</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/java/" rel="tag">java</a>
+    </div>
+
+        </div>
+    </header>
+    
+    <div class="content" itemprop="articleBody">
+        <h2 id="1-封装"><a href="#1-封装" class="headerlink" title="1.封装"></a>1.封装</h2><h3 id="1-1-封装的定义"><a href="#1-1-封装的定义" class="headerlink" title="1.1 封装的定义"></a>1.1 封装的定义</h3><blockquote>
+<p>首先是抽象，把事物抽象成一个类，其次才是封装，将事物拥有的属性和动作隐藏起来，只保留特定的方法与外界联系,封装主要是因为Java有访问权限的控制。public&gt;protected（继承访问权限）&gt;package = default（包访问权限） &gt; private。封装可以保护类中的信息，只提供想要被外界访问的信息。</p>
+</blockquote>
+<p>Java中的访问权限控制主要分为四个级别，如下表</p>
+<table>
+<thead>
+<tr>
+<th align="center">修饰符</th>
+<th align="center">当前类</th>
+<th align="center">同包</th>
+<th align="center">子类</th>
+<th align="center">其他包</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="center">private</td>
+<td align="center">√</td>
+<td align="center">×</td>
+<td align="center">×</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td align="center">dufalut</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">×</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td align="center">protect</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">×</td>
+</tr>
+<tr>
+<td align="center">public</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+<td align="center">√</td>
+</tr>
+</tbody></table>
+<h3 id="1-2-为什么需要封装"><a href="#1-2-为什么需要封装" class="headerlink" title="1.2 为什么需要封装"></a>1.2 为什么需要封装</h3><blockquote>
+<p>封装符合面向对象设计原则的第一条：单一性原则，一个类把自己该做的事情封装起来，而不是暴露给其他类去处理，当内部的逻辑发生变化时，外部调用不用因此而修改，他们只调用开放的接口，而不用去关心内部的实现</p>
+</blockquote>
+<h3 id="1-3-实现"><a href="#1-3-实现" class="headerlink" title="1.3 实现"></a>1.3 实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> age;</span><br><span class="line">    <span class="keyword">private</span> String name;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getAge</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setAge</span><span class="params">( <span class="keyword">int</span> age )</span> <span class="keyword">throws</span> Exception</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//封装age的检验逻辑，而不是暴露给每个调用者去处理</span></span><br><span class="line">        <span class="keyword">if</span>( age &gt; <span class="number">120</span> )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">throw</span> <span class="keyword">new</span> Exception( <span class="string">"Invalid value of age"</span> );</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">this</span>.age = age;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">getName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> name;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setName</span><span class="params">( String name )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.name = name;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="2-继承"><a href="#2-继承" class="headerlink" title="2. 继承"></a>2. 继承</h2><h3 id="2-1-Java的类可以分为三类"><a href="#2-1-Java的类可以分为三类" class="headerlink" title="2.1 Java的类可以分为三类"></a>2.1 Java的类可以分为三类</h3><ul>
+<li>类：使用class定义，没有抽象方法</li>
+<li>抽象类：使用abstract class定义，可以有也可以没有抽象方法</li>
+<li>接口：使用interface定义，只能有抽象方法</li>
+</ul>
+<h3 id="2-2-在这三个类型之间存在如下关系"><a href="#2-2-在这三个类型之间存在如下关系" class="headerlink" title="2.2 在这三个类型之间存在如下关系"></a>2.2 在这三个类型之间存在如下关系</h3><ul>
+<li>类可以extends：类、抽象类（必须实现所有抽象方法），但只能extends一个，可以implements多个接口（必须实现所有接口方法）</li>
+<li>抽象类可以extends：类，抽象类（可全部、部分、或者完全不实现父类抽象方法），可以implements多个接口（可全部、部分、或者完全不实现接口方法）</li>
+<li>接口可以extends多个接口</li>
+</ul>
+<h3 id="2-3-继承以后子类可以得到什么"><a href="#2-3-继承以后子类可以得到什么" class="headerlink" title="2.3 继承以后子类可以得到什么"></a>2.3 继承以后子类可以得到什么</h3><ul>
+<li>子类拥有父类非private的属性和方法</li>
+<li>子类可以添加自己的方法和属性，即对父类进行扩展</li>
+<li>子类可以重新定义父类的方法，即多态里面的覆盖，后面会详述</li>
+</ul>
+<h3 id="2-4-关于构造函数"><a href="#2-4-关于构造函数" class="headerlink" title="2.4 关于构造函数"></a>2.4 关于构造函数</h3><ul>
+<li>构造函数不能被继承，子类可以通过super()显示调用父类的构造函数</li>
+<li>创建子类时，编译器会自动调用父类的 无参构造函数</li>
+<li>如果父类没有定义无参构造函数，子类必须在构造函数的第一行代码使用super()显示调用</li>
+</ul>
+<p>类默认拥有无参构造函数，如果定义了其他有参构造函数，则无参函数失效，所以父类没有定义无参构造函数，不是指父类没有写无参构造函数。看下面的例子，父类为Human，子类为Programmer。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//定义了有参构造函数，默认无参构造函数失效</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Human</span><span class="params">(String name)</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Programmer</span></span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Programmer</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="comment">//如不显示调用，编译器会出现如下错误</span></span><br><span class="line">        <span class="comment">//Implicit super constructor Human() is undefined. Must explicitly invoke another constructor</span></span><br><span class="line">        <span class="keyword">super</span>( <span class="string">"x"</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-5-为什么需要继承"><a href="#2-5-为什么需要继承" class="headerlink" title="2.5 为什么需要继承"></a>2.5 为什么需要继承</h3><blockquote>
+<p>代码重用是一点，最重要的还是所谓想上转型，即父类的引用变量可以指向子类对象，这是Java面向对象最重要特性多态的基础</p>
+</blockquote>
+<h2 id="3-多态"><a href="#3-多态" class="headerlink" title="3. 多态"></a>3. 多态</h2><h3 id="3-1-在了解多态之前，首先需要知道方法的唯一性标识即什么是相同-不同的方法"><a href="#3-1-在了解多态之前，首先需要知道方法的唯一性标识即什么是相同-不同的方法" class="headerlink" title="3.1 在了解多态之前，首先需要知道方法的唯一性标识即什么是相同/不同的方法"></a>3.1 在了解多态之前，首先需要知道方法的唯一性标识即什么是相同/不同的方法</h3><ul>
+<li>一个方法可以由：修饰符如public、static+返回值+方法名+参数+throw的异常5部分构成</li>
+<li>其中只有方法名和参数是唯一性标识，意即只要方法名和参数相同那他们就是相同的方法</li>
+<li>所谓参数相同，是指参数的个数，类型，顺序一致，其中任何一项不同都是不同的方法</li>
+</ul>
+<h3 id="3-2-何谓重载"><a href="#3-2-何谓重载" class="headerlink" title="3.2 何谓重载"></a>3.2 何谓重载</h3><ul>
+<li>重载是指一个类里面（包括父类的方法）存在方法名相同，但是参数不一样的方法，参数不一样可以是不同的参数个数、类型或顺序</li>
+<li>如果仅仅是修饰符、返回值、throw的异常 不同，那这是2个相同的方法，编译都通不过，更不要说重载了</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//重载的例子</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Programmer</span></span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">coding</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">coding</span><span class="params">( String langType )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">coding</span><span class="params">( String langType, String project )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//这不是重载，而是三个相同的方法，编译报错</span></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Programmer</span></span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">coding</span><span class="params">()</span> <span class="keyword">throws</span> Exception</span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">coding</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> String <span class="title">coding</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> <span class="string">""</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-3-何谓覆盖-重写"><a href="#3-3-何谓覆盖-重写" class="headerlink" title="3.3 何谓覆盖/重写"></a>3.3 何谓覆盖/重写</h3><ul>
+<li>覆盖描述存在继承关系时子类的一种行为</li>
+<li>子类中存在和父类相同的方法即为覆盖，何谓相同方法请牢记前面的描述，方法名和参数相同，包括参数个数、类型、顺序</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">coding</span><span class="params">( String langType )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Programmer</span></span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//此方法为覆盖/重写</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">coding</span><span class="params">( String langType )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//此方法为上面方法的重载</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">coding</span><span class="params">( String langType, String project )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-4-覆盖-重写的规则"><a href="#3-4-覆盖-重写的规则" class="headerlink" title="3.4 覆盖/重写的规则"></a>3.4 覆盖/重写的规则</h3><ul>
+<li>子类不能覆盖父类private的方法，private对子类不可见，如果子类定义了一个和父类private方法相同的方法，实为新增方法</li>
+<li>重写方法的修饰符一定要大于或等于被重写方法的修饰符(public &gt; protected &gt; default &gt; private)</li>
+<li>重写抛出的异常需与父类相同或是父类异常的子类，或者重写方法干脆不写throws</li>
+<li>重写方法的返回值必须与被重写方法一致，否则编译报错</li>
+<li>静态方法不能被重写为非静态方法，否则编译出错</li>
+</ul>
+<h3 id="3-5-理解了上述知识点，就可以定义多态了"><a href="#3-5-理解了上述知识点，就可以定义多态了" class="headerlink" title="3.5 理解了上述知识点，就可以定义多态了"></a>3.5 理解了上述知识点，就可以定义多态了</h3><ul>
+<li>多态可以说是“一个接口，多种实现”或者说是父类的引用变量可以指向子类的实例，被引用对象的类型决定调用谁的方法，但这个方法必须在父类中定义</li>
+<li>多态可以分为两种类型：编译时多态（方法的重载）和运行时多态（继承时方法的重写），编译时多态很好理解，后述内容针对运行时多态</li>
+<li>运行时多态依赖于继承、重写和向上转型</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println( <span class="string">"I am Human"</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">//继承关系</span></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Doctor</span></span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//方法重写</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println( <span class="string">"I am Doctor"</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Programmer</span></span></span><br><span class="line"><span class="class">    <span class="keyword">extends</span> <span class="title">Human</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">showName</span><span class="params">()</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        System.out.println( <span class="string">"I am Programmer"</span> );</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span></span></span><br><span class="line"><span class="class"></span>&#123;</span><br><span class="line">    <span class="comment">//向上转型</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Human <span class="title">humanFactory</span><span class="params">( String humanType )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>( <span class="string">"doctor"</span>.equals( humanType ) )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Doctor();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span>( <span class="string">"programmer"</span>.equals( humanType ) )</span><br><span class="line">        &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">new</span> Programmer();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">new</span> Human();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">( String args[] )</span></span></span><br><span class="line"><span class="function">    </span>&#123;</span><br><span class="line">        Test test = <span class="keyword">new</span> Test();</span><br><span class="line">        Human human = test.humanFactory( <span class="string">"doctor"</span> );</span><br><span class="line">        human.showName();<span class="comment">//Output:I am Doctor</span></span><br><span class="line">        human = test.humanFactory( <span class="string">"programmer"</span> );</span><br><span class="line">        human.showName();<span class="comment">//Output:I am Programmer</span></span><br><span class="line">        <span class="comment">//一个接口的方法，表现出不同的形态，意即为多态也</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-6-向上转型的缺憾"><a href="#3-6-向上转型的缺憾" class="headerlink" title="3.6 向上转型的缺憾"></a>3.6 向上转型的缺憾</h3><blockquote>
+<p>只能调用父类中定义的属性和方法，对于子类中的方法和属性它就望尘莫及了，必须强转成子类类型</p>
+</blockquote>
+<h3 id="3-7-总结概括"><a href="#3-7-总结概括" class="headerlink" title="3.7 总结概括"></a>3.7 总结概括</h3><ul>
+<li>当超类对象引用变量引用子类对象时，被引用对象的类型而不是引用变量的类型决定了调用谁的成员方法，但是这个被调用的方法必须是在超类中定义过的，也就是说被子类覆盖的方法，但是它仍然要根据继承链中方法调用的优先级来确认方法，该优先级为：this.show(O)、super.show(O)、this.show((super)O)、super.show((super)O)</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Human</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun1</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Human fun1"</span>);</span><br><span class="line">        fun2();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Human fun2"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Programmer</span> <span class="keyword">extends</span> <span class="title">Human</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun1</span><span class="params">(String name)</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Programmer's fun1"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">fun2</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"Programmer's fun2"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Test</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Human human = <span class="keyword">new</span> Programmer();</span><br><span class="line">        human.fun1();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">/*</span></span><br><span class="line"><span class="comment">     * Output:</span></span><br><span class="line"><span class="comment">     *  Human fun1</span></span><br><span class="line"><span class="comment">     *  Programmer's fun2</span></span><br><span class="line"><span class="comment">     */</span></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>Programmer中的fun1(String name) 和Human中的fun1()，只是方法名相同但参数不一样，所以是重载关系</li>
+<li>Programmer中的fun2()和Human中的fun2()是相同的方法，即Programmer重写了Human的fun2()方法</li>
+<li>把Programmer的对象向上转型赋值个Human后，human.fun1()会调用父类中的fun1()方法，子类的fun1(String name)是不同的方法</li>
+<li>在human的fun1()中又调用了fun2()方法，该方法在Programmer中被重写，实际调用的是被引用变量Programmer中的fun2()方法</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">package</span> test;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"func in A"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">B</span> <span class="keyword">extends</span> <span class="title">A</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"func in B"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">C</span> <span class="keyword">extends</span> <span class="title">B</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">func</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        System.out.println(<span class="string">"func in B"</span>);</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Bar</span> </span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(A a)</span> </span>&#123;</span><br><span class="line">        a.func();</span><br><span class="line">        System.out.println(<span class="string">"test A in Bar"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">test</span><span class="params">(C c)</span> </span>&#123;</span><br><span class="line">        c.func();</span><br><span class="line">        System.out.println(<span class="string">"test C in Bar"</span>);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        Bar bar = <span class="keyword">new</span> Bar();</span><br><span class="line">        A a = <span class="keyword">new</span> A();</span><br><span class="line">        B b = <span class="keyword">new</span> B();</span><br><span class="line">        C c = <span class="keyword">new</span> C();</span><br><span class="line">        bar.test(a);</span><br><span class="line">        bar.test(b);</span><br><span class="line">        bar.test(c);</span><br><span class="line">        <span class="comment">/*</span></span><br><span class="line"><span class="comment">            func in A</span></span><br><span class="line"><span class="comment">            test A in Bar</span></span><br><span class="line"><span class="comment">            func in B</span></span><br><span class="line"><span class="comment">            test A in Bar</span></span><br><span class="line"><span class="comment">            func in B</span></span><br><span class="line"><span class="comment">            test C in Bar</span></span><br><span class="line"><span class="comment">         */</span></span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+    <div class="blog-post-comments">
+        <section id="comment">
+            <div id="valine_container" class="valine_thread"></div>
+        </section>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick', 'mail', 'link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'true' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                appId: "TEnoeFH0w3atQfEjCMpzfDOm-gzGzoHsz",
+                appKey: "8GXwVUi9ebKXuqSFR48rkXtK",
+                placeholder: "Just go go",
+                pageSize: '10',
+                avatar: 'mm',
+                lang: 'zh-cn'
+            })
+        </script>
+    </div>
+
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1-封装"><span class="toc-number">1.</span> <span class="toc-text">1.封装</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-1-封装的定义"><span class="toc-number">1.1.</span> <span class="toc-text">1.1 封装的定义</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-2-为什么需要封装"><span class="toc-number">1.2.</span> <span class="toc-text">1.2 为什么需要封装</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#1-3-实现"><span class="toc-number">1.3.</span> <span class="toc-text">1.3 实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2-继承"><span class="toc-number">2.</span> <span class="toc-text">2. 继承</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-1-Java的类可以分为三类"><span class="toc-number">2.1.</span> <span class="toc-text">2.1 Java的类可以分为三类</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-2-在这三个类型之间存在如下关系"><span class="toc-number">2.2.</span> <span class="toc-text">2.2 在这三个类型之间存在如下关系</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-3-继承以后子类可以得到什么"><span class="toc-number">2.3.</span> <span class="toc-text">2.3 继承以后子类可以得到什么</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-4-关于构造函数"><span class="toc-number">2.4.</span> <span class="toc-text">2.4 关于构造函数</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-5-为什么需要继承"><span class="toc-number">2.5.</span> <span class="toc-text">2.5 为什么需要继承</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3-多态"><span class="toc-number">3.</span> <span class="toc-text">3. 多态</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#3-1-在了解多态之前，首先需要知道方法的唯一性标识即什么是相同-不同的方法"><span class="toc-number">3.1.</span> <span class="toc-text">3.1 在了解多态之前，首先需要知道方法的唯一性标识即什么是相同&#x2F;不同的方法</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-2-何谓重载"><span class="toc-number">3.2.</span> <span class="toc-text">3.2 何谓重载</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-3-何谓覆盖-重写"><span class="toc-number">3.3.</span> <span class="toc-text">3.3 何谓覆盖&#x2F;重写</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-4-覆盖-重写的规则"><span class="toc-number">3.4.</span> <span class="toc-text">3.4 覆盖&#x2F;重写的规则</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-5-理解了上述知识点，就可以定义多态了"><span class="toc-number">3.5.</span> <span class="toc-text">3.5 理解了上述知识点，就可以定义多态了</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-6-向上转型的缺憾"><span class="toc-number">3.6.</span> <span class="toc-text">3.6 向上转型的缺憾</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-7-总结概括"><span class="toc-number">3.7.</span> <span class="toc-text">3.7 总结概括</span></a></li></ol></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2019/03/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81/&title=深入理解Java面向对象三大特性封装、继承、多态"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2019/03/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81/&title=深入理解Java面向对象三大特性封装、继承、多态"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2019/03/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81/&text=深入理解Java面向对象三大特性封装、继承、多态" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=深入理解Java面向对象三大特性封装、继承、多态&body=Check out this article: http://theoak.online/2019/03/08/%E6%B7%B1%E5%85%A5%E7%90%86%E8%A7%A3Java%E9%9D%A2%E5%90%91%E5%AF%B9%E8%B1%A1%E4%B8%89%E5%A4%A7%E7%89%B9%E6%80%A7%E5%B0%81%E8%A3%85%E3%80%81%E7%BB%A7%E6%89%BF%E3%80%81%E5%A4%9A%E6%80%81/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>
