@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>StackAndQueue</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/about/">About</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2019/07/26/SqlOrNoSql%EF%BC%8C%E7%9C%8B%E5%AE%8C%E8%BF%99%E4%B8%80%E7%AF%87%E4%BD%A0%E5%B0%B1%E6%87%82%E4%BA%86/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2019/06/14/%E5%B8%B8%E8%A7%81%E7%9A%84http%E9%94%99%E8%AF%AF%E6%8F%8F%E8%BF%B0%E5%8E%9F%E5%9B%A0/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2019/07/10/StackAndQueue/&title=StackAndQueue"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2019/07/10/StackAndQueue/&title=StackAndQueue"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2019/07/10/StackAndQueue/&text=StackAndQueue" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=StackAndQueue&body=Check out this article: http://theoak.online/2019/07/10/StackAndQueue/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现一个简单的栈"><span class="toc-number">1.</span> <span class="toc-text">实现一个简单的栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用链表和数组实现队列"><span class="toc-number">2.</span> <span class="toc-text">用链表和数组实现队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#链表实现"><span class="toc-number">2.1.</span> <span class="toc-text">链表实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组实现"><span class="toc-number">2.2.</span> <span class="toc-text">数组实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#括号匹配问题"><span class="toc-number">3.</span> <span class="toc-text">括号匹配问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用队列实现栈"><span class="toc-number">4.</span> <span class="toc-text">用队列实现栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈实现队列"><span class="toc-number">5.</span> <span class="toc-text">栈实现队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最小栈"><span class="toc-number">6.</span> <span class="toc-text">最小栈</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        StackAndQueue
+    </h1>
+
+        <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">
+            EricGerry
+            
+        </span>
+      </span>
+            
+    <div class="postdate">
+        
+            <time datetime="2019-07-10T12:48:10.000Z"
+                  itemprop="datePublished">2019-07-10</time>
+            
+                (Updated:
+                <time datetime="2020-07-10T13:01:48.956Z"
+                      itemprop="dateModified">2020-07-10</time>)
+            
+        
+    </div>
+
+            
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/java/">java</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Queue/" rel="tag">Queue</a>, <a class="tag-link" href="/tags/Stack/" rel="tag">Stack</a>, <a class="tag-link" href="/tags/java/" rel="tag">java</a>
+    </div>
+
+        </div>
+    </header>
+    
+    <div class="content" itemprop="articleBody">
+        <p><img src="/2019/07/10/StackAndQueue/1.jpg" alt=" "></p>
+<h2 id="实现一个简单的栈"><a href="#实现一个简单的栈" class="headerlink" title="实现一个简单的栈"></a>实现一个简单的栈</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] array=<span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size=<span class="number">0</span>;</span><br><span class="line">    <span class="comment">//入栈</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        array[size] = x;</span><br><span class="line">        size++;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//出栈</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(size == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ret = array[size - <span class="number">1</span>];</span><br><span class="line">        size--;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="comment">//获取栈顶元素</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">peek</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(size == <span class="number">0</span>)&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> array[size - <span class="number">1</span>];</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size==<span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="用链表和数组实现队列"><a href="#用链表和数组实现队列" class="headerlink" title="用链表和数组实现队列"></a>用链表和数组实现队列</h2><h3 id="链表实现"><a href="#链表实现" class="headerlink" title="链表实现"></a>链表实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br><span class="line">72</span><br><span class="line">73</span><br><span class="line">74</span><br><span class="line">75</span><br><span class="line">76</span><br><span class="line">77</span><br><span class="line">78</span><br><span class="line">79</span><br></pre></td><td class="code"><pre><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">Node</span> </span>&#123;</span><br><span class="line">    <span class="keyword">public</span> Node next;</span><br><span class="line">    <span class="keyword">public</span> <span class="keyword">int</span> val;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Node</span><span class="params">(<span class="keyword">int</span> val)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">this</span>.val = val;</span><br><span class="line">    &#125;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyQueue</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Node head = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> Node Tail = <span class="keyword">null</span>;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//入队列</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">offer</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        Node newNode = <span class="keyword">new</span> Node(x);</span><br><span class="line">        <span class="comment">//处理头结点为空的情况，直接插入</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">            head = newNode;</span><br><span class="line">            Tail = newNode;</span><br><span class="line">            size++;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//头结点不为空</span></span><br><span class="line">        Tail.next = newNode;</span><br><span class="line">        Tail = Tail.next;</span><br><span class="line">        size++;</span><br><span class="line">        <span class="keyword">return</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//出队列</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">poll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="comment">//头结点为空直接返回null</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">//返回头结点的val</span></span><br><span class="line">        Integer ret = head.val;</span><br><span class="line">        head = head.next;</span><br><span class="line">        <span class="comment">//处理队列里只有一个元素的情况</span></span><br><span class="line">        <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="comment">//修改Tail的指向</span></span><br><span class="line">            Tail = <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        size--;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//取队首元素</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">               <span class="keyword">if</span> (head == <span class="keyword">null</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> head.val;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">//判定队列为空</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> head == <span class="keyword">null</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getSize</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyQueue MyQueue = <span class="keyword">new</span> MyQueue();</span><br><span class="line">        MyQueue.offer(<span class="number">1</span>);</span><br><span class="line">        MyQueue.offer(<span class="number">2</span>);</span><br><span class="line">        MyQueue.offer(<span class="number">3</span>);</span><br><span class="line">        MyQueue.offer(<span class="number">4</span>);</span><br><span class="line">        <span class="keyword">while</span> (!MyQueue.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">int</span> curFront = MyQueue.peek();</span><br><span class="line">            System.out.print(curFront+<span class="string">"\t"</span>);</span><br><span class="line">            MyQueue.poll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="数组实现"><a href="#数组实现" class="headerlink" title="数组实现"></a>数组实现</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyQueue2</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] data = <span class="keyword">new</span> <span class="keyword">int</span>[<span class="number">100</span>];</span><br><span class="line">    <span class="comment">// [head, tail)</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> head = <span class="number">0</span>; <span class="comment">// 队首元素的下标</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> tail = <span class="number">0</span>; <span class="comment">// 队尾元素的下标</span></span><br><span class="line">    <span class="keyword">private</span> <span class="keyword">int</span> size = <span class="number">0</span>;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 1. 入队列, 如果插入成功, 返回 true, 否则返回 false</span></span><br><span class="line">    <span class="comment">//    如果队列满了, 再插入就会失败</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">offer</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size == data.length) &#123;</span><br><span class="line">                       <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 新元素放到 tail 的位置上</span></span><br><span class="line">        data[tail] = x;</span><br><span class="line">        tail++;</span><br><span class="line">        <span class="keyword">if</span> (tail == data.length) &#123;</span><br><span class="line">            tail = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        size++;</span><br><span class="line">        <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 2. 出队列</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">poll</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        Integer ret = data[head];</span><br><span class="line">        head++;</span><br><span class="line">        <span class="keyword">if</span> (head == data.length) &#123;</span><br><span class="line">            head = <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        size--;</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 3. 取队首元素</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> Integer <span class="title">peek</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (size == <span class="number">0</span>) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">null</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> data[head];</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 4. 判定为空</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size == <span class="number">0</span>;</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="comment">// 5. 取长度</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">size</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> size;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        MyQueue2 myQueue2 = <span class="keyword">new</span> MyQueue2();</span><br><span class="line">        myQueue2.offer(<span class="number">1</span>);</span><br><span class="line">        myQueue2.offer(<span class="number">2</span>);</span><br><span class="line">        myQueue2.offer(<span class="number">3</span>);</span><br><span class="line">        myQueue2.offer(<span class="number">4</span>);</span><br><span class="line">        <span class="keyword">while</span> (!myQueue2.isEmpty()) &#123;</span><br><span class="line">            Integer cur = myQueue2.peek();</span><br><span class="line">            System.out.print(cur+<span class="string">"\t"</span>);</span><br><span class="line">            myQueue2.poll();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="括号匹配问题"><a href="#括号匹配问题" class="headerlink" title="括号匹配问题"></a>括号匹配问题</h2><ul>
+<li>采用遇到左括号入栈</li>
+<li>再从栈顶区出，与右括号匹配</li>
+</ul>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line"><span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isValid</span><span class="params">(String s)</span> </span>&#123;</span><br><span class="line">        Stack&lt;Character&gt; stack = <span class="keyword">new</span> Stack&lt;Character&gt;();</span><br><span class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; s.length(); i++) &#123;</span><br><span class="line">            <span class="keyword">char</span> c = s.charAt(i);</span><br><span class="line">            <span class="keyword">if</span> (c == <span class="string">'['</span> || c == <span class="string">'('</span> || c == <span class="string">'&lt;'</span>) &#123;</span><br><span class="line">                stack.push(c);</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">                <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">char</span> top = stack.pop();</span><br><span class="line">            <span class="keyword">if</span> (top == <span class="string">'('</span> &amp;&amp; c == <span class="string">')'</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (top == <span class="string">'&#123;'</span> &amp;&amp; c == <span class="string">'&#125;'</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">if</span> (top == <span class="string">'['</span> &amp;&amp; c == <span class="string">']'</span>) &#123;</span><br><span class="line">                <span class="keyword">continue</span>;</span><br><span class="line">            &#125;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">if</span> (stack.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="keyword">true</span>;</span><br><span class="line">        &#125;</span><br><span class="line">         <span class="keyword">return</span> <span class="keyword">false</span>;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="用队列实现栈"><a href="#用队列实现栈" class="headerlink" title="用队列实现栈"></a>用队列实现栈</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.LinkedList;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">MyStackBy2Queue</span> </span>&#123;</span><br><span class="line">    <span class="comment">//A始终用来入栈，B始终用来出栈</span></span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;Integer&gt; A = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> LinkedList&lt;Integer&gt; B = <span class="keyword">new</span> LinkedList&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        A.offer(x);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (A.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (A.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> cur = A.removeFirst();</span><br><span class="line">            B.addLast(cur);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> ret = A.removeFirst();</span><br><span class="line">        swap();</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">swap</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        LinkedList&lt;Integer&gt; tmp = A;</span><br><span class="line">        A = B;</span><br><span class="line">        B = tmp;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span> (A.isEmpty()) &#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (A.size() &gt; <span class="number">1</span>) &#123;</span><br><span class="line">            <span class="keyword">int</span> cur = A.removeFirst();</span><br><span class="line">            B.addLast(cur);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="comment">// 最终要出栈的元素</span></span><br><span class="line">        <span class="keyword">int</span> ret = A.removeFirst();</span><br><span class="line">               B.addLast(ret);</span><br><span class="line">        <span class="comment">// 交换 AB</span></span><br><span class="line">        swap();</span><br><span class="line">        <span class="keyword">return</span> ret;</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">return</span> A.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="栈实现队列"><a href="#栈实现队列" class="headerlink" title="栈实现队列"></a>栈实现队列</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">QueueBY2Stack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; A=<span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; B=<span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span></span>&#123;</span><br><span class="line">        <span class="keyword">while</span> (!B.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp=B.pop();</span><br><span class="line">            A.push(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        A.push(x);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">pop</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(A.isEmpty()&amp;&amp;B.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span>(!A.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp=A.pop();</span><br><span class="line">            B.push(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> B.pop();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">peek</span><span class="params">()</span></span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(A.isEmpty()&amp;&amp;B.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span> <span class="number">0</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">while</span> (!A.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">int</span> tmp=A.pop();</span><br><span class="line">            B.push(tmp);</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">return</span> B.peek();</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isEmpty</span><span class="params">()</span></span>&#123;</span><br><span class="line">         <span class="keyword">return</span> A.isEmpty()&amp;&amp;B.isEmpty();</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h2 id="最小栈"><a href="#最小栈" class="headerlink" title="最小栈"></a>最小栈</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.util.Stack;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">MinStack</span> </span>&#123;</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; A=<span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line">    <span class="keyword">private</span> Stack&lt;Integer&gt; B=<span class="keyword">new</span> Stack&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">    <span class="comment">/** initialize your data structure here. */</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">MinStack</span><span class="params">()</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">push</span><span class="params">(<span class="keyword">int</span> x)</span> </span>&#123;</span><br><span class="line">        A.push(x);</span><br><span class="line">        <span class="keyword">if</span>(B.isEmpty())&#123;</span><br><span class="line">            B.push(x);</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">int</span> min=B.peek();</span><br><span class="line">        <span class="keyword">if</span>(x&lt;min)&#123;</span><br><span class="line">            min=x;</span><br><span class="line">        &#125;</span><br><span class="line">        B.push(min);</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">pop</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">if</span>(A.isEmpty())&#123;</span><br><span class="line">            <span class="keyword">return</span>;</span><br><span class="line">        &#125;</span><br><span class="line">        A.pop();</span><br><span class="line">        B.pop();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">top</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> A.peek();</span><br><span class="line">    &#125;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getMin</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">return</span> B.peek();</span><br><span class="line">            &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="comment">/**</span></span><br><span class="line"><span class="comment"> * Your MinStack object will be instantiated and called as such:</span></span><br><span class="line"><span class="comment"> * MinStack obj = new MinStack();</span></span><br><span class="line"><span class="comment"> * obj.push(x);</span></span><br><span class="line"><span class="comment"> * obj.pop();</span></span><br><span class="line"><span class="comment"> * int param_3 = obj.top();</span></span><br><span class="line"><span class="comment"> * int param_4 = obj.getMin();</span></span><br><span class="line"><span class="comment"> */</span></span><br></pre></td></tr></table></figure>
+
+    </div>
+</article>
+
+    <div class="blog-post-comments">
+        <section id="comment">
+            <div id="valine_container" class="valine_thread"></div>
+        </section>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick', 'mail', 'link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'true' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                appId: "TEnoeFH0w3atQfEjCMpzfDOm-gzGzoHsz",
+                appKey: "8GXwVUi9ebKXuqSFR48rkXtK",
+                placeholder: "Just go go",
+                pageSize: '10',
+                avatar: 'mm',
+                lang: 'zh-cn'
+            })
+        </script>
+    </div>
+
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#实现一个简单的栈"><span class="toc-number">1.</span> <span class="toc-text">实现一个简单的栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用链表和数组实现队列"><span class="toc-number">2.</span> <span class="toc-text">用链表和数组实现队列</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#链表实现"><span class="toc-number">2.1.</span> <span class="toc-text">链表实现</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#数组实现"><span class="toc-number">2.2.</span> <span class="toc-text">数组实现</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#括号匹配问题"><span class="toc-number">3.</span> <span class="toc-text">括号匹配问题</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#用队列实现栈"><span class="toc-number">4.</span> <span class="toc-text">用队列实现栈</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#栈实现队列"><span class="toc-number">5.</span> <span class="toc-text">栈实现队列</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#最小栈"><span class="toc-number">6.</span> <span class="toc-text">最小栈</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2019/07/10/StackAndQueue/&title=StackAndQueue"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2019/07/10/StackAndQueue/&title=StackAndQueue"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2019/07/10/StackAndQueue/&text=StackAndQueue" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=StackAndQueue&body=Check out this article: http://theoak.online/2019/07/10/StackAndQueue/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>
