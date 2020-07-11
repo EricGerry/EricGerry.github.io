@@ -184,11 +184,11 @@
       
         <tags>
             
-            <tag> java </tag>
-            
             <tag> HashMap </tag>
             
             <tag> TreeMap </tag>
+            
+            <tag> java </tag>
             
         </tags>
       
