@@ -1,0 +1,464 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>给俺一首歌的时间：带你了解Git的前世今生</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/about/">About</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+              <li><a class="icon" href="/2019/08/15/JSP%E7%AE%80%E4%BB%8B%E5%8F%8A%E5%85%B6%E4%B8%8EHTML%E7%9A%84%E5%8C%BA%E5%88%AB/"><i class="fas fa-chevron-left"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-prev').toggle();"
+                                                                           onmouseout="$('#i-prev').toggle();"></i></a></li>
+          
+          
+              <li><a class="icon" href="/2019/08/14/%E5%B8%B8%E7%94%A8%E7%9A%8420%E4%B8%AALinux%E5%91%BD%E4%BB%A4/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/&title=给俺一首歌的时间：带你了解Git的前世今生"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/&title=给俺一首歌的时间：带你了解Git的前世今生"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/&text=给俺一首歌的时间：带你了解Git的前世今生" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=给俺一首歌的时间：带你了解Git的前世今生&body=Check out this article: http://theoak.online/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git的诞生原由"><span class="toc-number">1.</span> <span class="toc-text">Git的诞生原由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#版本控制系统"><span class="toc-number">2.</span> <span class="toc-text">版本控制系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-集中化版本控制系统Centralized-Version-Control-Systems-CVCS"><span class="toc-number">2.1.</span> <span class="toc-text">1. 集中化版本控制系统Centralized Version Control Systems (CVCS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-分布式版本控制系统Distributed-Version-Control-Systems-DVCS"><span class="toc-number">2.2.</span> <span class="toc-text">2. 分布式版本控制系统Distributed Version Control Systems (DVCS)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#那么什么叫“把代码仓库完整地镜像下来”呢"><span class="toc-number">2.2.1.</span> <span class="toc-text">那么什么叫“把代码仓库完整地镜像下来”呢</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-的数据模型"><span class="toc-number">3.</span> <span class="toc-text">Git 的数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是快照-snapshot-呢"><span class="toc-number">3.1.</span> <span class="toc-text">1. 什么是快照 (snapshot) 呢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-本地库的数据模型"><span class="toc-number">3.2.</span> <span class="toc-text">2. 本地库的数据模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">4.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地操作"><span class="toc-number">4.1.</span> <span class="toc-text">本地操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-git-add"><span class="toc-number">4.1.1.</span> <span class="toc-text">1. $ git add</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-git-commit-m-“comment”"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. $ git commit -m “comment”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-git-log"><span class="toc-number">4.1.3.</span> <span class="toc-text">3. $ git log</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-git-reset"><span class="toc-number">4.1.4.</span> <span class="toc-text">4. $ git reset</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程交互"><span class="toc-number">4.2.</span> <span class="toc-text">远程交互</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-git-push"><span class="toc-number">4.2.1.</span> <span class="toc-text">5. $ git push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-git-clone"><span class="toc-number">4.2.2.</span> <span class="toc-text">6. $ git clone</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-git-pull"><span class="toc-number">4.2.3.</span> <span class="toc-text">7. $ git pull</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-git-fetch"><span class="toc-number">4.2.4.</span> <span class="toc-text">8. $ git fetch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-git-rebase"><span class="toc-number">4.2.5.</span> <span class="toc-text">9. $ git rebase</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支与合并"><span class="toc-number">4.3.</span> <span class="toc-text">分支与合并</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-查看分支"><span class="toc-number">4.3.1.</span> <span class="toc-text">10. 查看分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-创建分支"><span class="toc-number">4.3.2.</span> <span class="toc-text">11. 创建分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-切换分支"><span class="toc-number">4.3.3.</span> <span class="toc-text">12. 切换分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-合并分支"><span class="toc-number">4.3.4.</span> <span class="toc-text">13. 合并分支</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习资源"><span class="toc-number">5.</span> <span class="toc-text">学习资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-help"><span class="toc-number">5.1.</span> <span class="toc-text">git help</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pro-Git"><span class="toc-number">5.2.</span> <span class="toc-text">Pro Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#玩游戏"><span class="toc-number">5.3.</span> <span class="toc-text">玩游戏</span></a></li></ol></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        给俺一首歌的时间：带你了解Git的前世今生
+    </h1>
+
+        <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">
+            EricGerry
+            
+        </span>
+      </span>
+            
+    <div class="postdate">
+        
+            <time datetime="2019-08-15T05:56:18.000Z"
+                  itemprop="datePublished">2019-08-15</time>
+            
+                (Updated:
+                <time datetime="2020-07-15T12:38:19.847Z"
+                      itemprop="dateModified">2020-07-15</time>)
+            
+        
+    </div>
+
+            
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/git/">git</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/git/" rel="tag">git</a>
+    </div>
+
+        </div>
+    </header>
+    
+    <div class="content" itemprop="articleBody">
+        <p><img src="/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/git.jpg" alt=" "></p>
+<h2 id="Git的诞生原由"><a href="#Git的诞生原由" class="headerlink" title="Git的诞生原由"></a>Git的诞生原由</h2><blockquote>
+<p>Talk is cheap. Show me the code.</p>
+</blockquote>
+<p>这句话就出自 Linux 和 Git 的作者<strong>Linus Torvalds</strong>。</p>
+<p>原本 Linux 内核的版本控制系统是用的 BitKeeper，然而 2005 年，BitMover 公司不再让 Linux 开发团队免费使用了。</p>
+<p>Linus 一听，不给用了？我自己写！</p>
+<p>于是，大佬十天之内完成了 Git 的第一个版本。</p>
+<p>所以 Git 是一个免费的、开源的版本控制系统。</p>
+<h2 id="版本控制系统"><a href="#版本控制系统" class="headerlink" title="版本控制系统"></a>版本控制系统</h2><p>版本控制其实每个人都用过，比如修改过的简历。</p>
+<p>没错，这就是本地版本控制系统。</p>
+<p>很明显，好处是简单，但是只能一个人在这改，无法和他人完成合作。那么以下两种主流的版本控制系统应运而生。</p>
+<h3 id="1-集中化版本控制系统Centralized-Version-Control-Systems-CVCS"><a href="#1-集中化版本控制系统Centralized-Version-Control-Systems-CVCS" class="headerlink" title="1. 集中化版本控制系统Centralized Version Control Systems (CVCS)"></a>1. 集中化版本控制系统Centralized Version Control Systems (CVCS)</h3><p>比如：CVS, Subversion, Perforce, etc.</p>
+<p>这种版本控制系统有一个单一的集中管理的服务器，保存所有文件的最新版本，大家可以通过连接到这台服务器上来获取或者提交文件。<br><img src="/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/%E9%9B%86%E4%B8%AD%E5%8C%96%E7%89%88%E6%9C%AC%E6%8E%A7%E5%88%B6.png" alt=" "></p>
+<p>这种模式相对本地版本控制系统是有所改进的，但是缺点也很明显，如果服务器宕机，那么轻则耽误工作、重则数据丢失。于是分布式版本控制系统应运而生。</p>
+<h3 id="2-分布式版本控制系统Distributed-Version-Control-Systems-DVCS"><a href="#2-分布式版本控制系统Distributed-Version-Control-Systems-DVCS" class="headerlink" title="2. 分布式版本控制系统Distributed Version Control Systems (DVCS)"></a>2. 分布式版本控制系统Distributed Version Control Systems (DVCS)</h3><p>比如：Git, Mercurial, Bazaar, etc.</p>
+<p>分布式的版本控制系统会把代码仓库完整地镜像下来，这样任何一个服务器发生故障，都可以用其他的仓库来修复。</p>
+<p>更进一步，这种模式可以更方便的和不同公司的人进行同一项目的开发，因为两个远程代码仓库可以交互，这在之前的集中式系统中是无法做到的。</p>
+<h4 id="那么什么叫“把代码仓库完整地镜像下来”呢"><a href="#那么什么叫“把代码仓库完整地镜像下来”呢" class="headerlink" title="那么什么叫“把代码仓库完整地镜像下来”呢"></a>那么什么叫“把代码仓库完整地镜像下来”呢</h4><p>CVCS 每个版本存放的是当前版本与前一个版本的差异，因此也被称作基于差异的版本控制 (delta-based)；</p>
+<p>Git 存储的是所有文件的一个快照 (snapshot)，如果有的文件没有修改，那就只保留一个 reference 指向之前存储的文件。</p>
+<p>不是很好理解？那接着看吧～</p>
+<h2 id="Git-的数据模型"><a href="#Git-的数据模型" class="headerlink" title="Git 的数据模型"></a>Git 的数据模型</h2><h3 id="1-什么是快照-snapshot-呢"><a href="#1-什么是快照-snapshot-呢" class="headerlink" title="1. 什么是快照 (snapshot) 呢"></a>1. 什么是快照 (snapshot) 呢</h3><p>首先我们来学两个 Git 中的术语：</p>
+<ul>
+<li>blob, 就是单个的文件；</li>
+<li>tree, 就是一个文件夹。<br>快照则是被追踪的最顶层的树。</li>
+</ul>
+<p>文件夹的这么一个结构：<br><img src="/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/%E5%BF%AB%E7%85%A7.png" alt=" "></p>
+<p>那么一个快照就是追踪的“公众号”这颗树。</p>
+<h3 id="2-本地库的数据模型"><a href="#2-本地库的数据模型" class="headerlink" title="2. 本地库的数据模型"></a>2. 本地库的数据模型</h3><p>Git 记录了每个快照的 parent，也就是当前这个文件夹的上一个版本。</p>
+<p>那么快照的迭代更新的过程就可以表示为一个有向无环图：</p>
+<p><img src="/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/%E6%9C%AC%E5%9C%B0%E5%BA%93%E7%9A%84%E6%95%B0%E6%8D%AE%E6%A8%A1%E5%9E%8B.png" alt=" "></p>
+<p>每个快照其实都对应了一次 commit，用代码来表示一下：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">class commit &#123;</span><br><span class="line">  array&lt;commit&gt; parents</span><br><span class="line">  String author</span><br><span class="line">  String message</span><br><span class="line">  Tree snapshot</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<p>这就是 Git 的数据模型。</p>
+<p>blob, tree, snapshot 其实都一样，它们在 Git 中都是对象，都可以被引用或者被搜索，会基于它们的 SHA-1 hash 进行寻址。</p>
+<ul>
+<li>git cat-file -t: 查看每个 SHA-1 的类型;</li>
+<li>git cat-file -p: 查看每个</li>
+<li>对象的内容和简单的数据结构。<br>但是通过这个哈希值来搜索也太不方便了，毕竟这是一串 40 位的十六进制字符，就是第二部分 git log 里输出的那个编码。</li>
+</ul>
+<p>因此，Git 还给了一个引用 reference。</p>
+<p>比如，我们常见的 HEAD 就是一个特殊的引用。</p>
+<p>本地库就是由 对象 和 引用 构成的，或者叫 Repositories.</p>
+<p>在硬盘上，Git 只存储 对象 和 引用，所有的 Git 命令都对应提交一个快照。</p>
+<p>那有哪些常用命令呢？</p>
+<h2 id="常用命令"><a href="#常用命令" class="headerlink" title="常用命令"></a>常用命令</h2><p>本章分三大部分，介绍日常常用命令：</p>
+<ul>
+<li>本地操作</li>
+<li>和远程库的交互</li>
+<li>团队协作 - 分支</li>
+</ul>
+<h3 id="本地操作"><a href="#本地操作" class="headerlink" title="本地操作"></a>本地操作</h3><p>在学习常用命令之前，你首先需要知道的 Git 的「三个分区」和对应的文件的「三种状态」：</p>
+<p><img src="/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/%E6%9C%AC%E5%9C%B0%E6%93%8D%E4%BD%9C.png" alt=" "></p>
+<p><strong>工作区：</strong> 就是你本地实际写代码的地方，无论你是用 vim 直接改也好，还是在 IDE 里写，都无所谓。<br>对应的文件状态是：modified，已修改，但还没保存到数据库中。</p>
+<p><strong>暂存区：</strong> 就是临时存放的地方。<br>对应的文件状态是：staged，Git 已经对该文件做了标记，下次提交知道要包含它。</p>
+<p><strong>本地库：</strong> 存放本地历史版本信息。<br>对应的文件状态是：committed，文件已经安全的保存在本地数据库中。</p>
+<h4 id="1-git-add"><a href="#1-git-add" class="headerlink" title="1. $ git add"></a>1. $ git add</h4><p>工作区改完了代码，就用 git add 提交到暂存区。</p>
+<p>这里如果文件改动的比较多，但又不是每个都需要提交，我会设置 git ignore file，就表示这些文件不要提交，比如在 build project 的时候会自动生成的那些文件等等。</p>
+<h4 id="2-git-commit-m-“comment”"><a href="#2-git-commit-m-“comment”" class="headerlink" title="2. $ git commit -m “comment”"></a>2. $ git commit -m “comment”</h4><p>从暂存区提交到本地库，就需要用 commit。</p>
+<p>一般后面都会跟个 -m 加句 comment，简单说下改动的内容或者原因，我们公司大家默认也会把 Jira链接附上，这样就知道这个改动对应哪个任务。</p>
+<p>那如果想再改，再重新 git add 即可，但是 commit 这句需要改成</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git commit --amend</span><br></pre></td></tr></table></figure>
+
+<p>这样就还是一条 git log 信息。</p>
+<h4 id="3-git-log"><a href="#3-git-log" class="headerlink" title="3. $ git log"></a>3. $ git log</h4><p>git log 可以查看到提交过的信息，从近到远显示每次 commit 的 comment 还有作者、日期等信息，比如大概长这个样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">commit 5abcd17dggs9s0a7a91nfsagd8ay76875afs7d6</span><br><span class="line">Author: Xiaoqi&lt;xxx@163.com&gt;</span><br><span class="line">Date: xxx xxx xxx</span><br><span class="line">改了 Test 文件</span><br></pre></td></tr></table></figure>
+
+<p>commit 后面的这个编号，是每次历史记录的一个索引。比如如果需要对版本进行前进或者后退的时候，就需要用到它。</p>
+<p>这样打印的 log 太多，更简洁的打印方式是：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git log --oneline</span><br></pre></td></tr></table></figure>
+
+<p>就一行打印出来了。</p>
+<p>或者：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git reflog</span><br></pre></td></tr></table></figure>
+
+<p>更常用一些。</p>
+<h4 id="4-git-reset"><a href="#4-git-reset" class="headerlink" title="4. $ git reset"></a>4. $ git reset</h4><p>那我们刚刚说过，如果需要前进或退回到某个版本，就用</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$git reset --hard &lt;编号&gt;</span><br></pre></td></tr></table></figure>
+
+<p>这样就直接跳到了这个编号对应的那个版本。</p>
+<p>那么这个 hard 是什么意思呢？</p>
+<p>这里有 3 个参数：hard, soft, mixed，我们一一来说一下。</p>
+<p>回到我们最重要的这张图上来：</p>
+<p><img src="/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/%E6%9C%AC%E5%9C%B0%E5%BA%93.png" alt=" "></p>
+<p>刚刚说的前进或后退到某一版本，是对本地库进行的操作。</p>
+<p>那有个问题：<br>本地库的代码跳到那个版本之后，工作区和暂存区的代码就和本地库的不同步了呀！</p>
+<p>那这些参数就是用来控制这些是否同步的。</p>
+<p><strong>$ git reset –hard xxx.</strong></p>
+<p>三个区都同步，都跳到这个 xxx 的版本上。</p>
+<p><strong>$ git reset –soft xxx.</strong></p>
+<p>前面两个区不同步，就只有本地库跳到这个版本。</p>
+<p><strong>$ git reset –mixed xxx.</strong></p>
+<p>暂存区同步，工作区不动。</p>
+<p>所以呢，用的多的就是 hard.</p>
+<h3 id="远程交互"><a href="#远程交互" class="headerlink" title="远程交互"></a>远程交互</h3><p><img src="/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/%E8%BF%9C%E7%A8%8B%E4%BA%A4%E4%BA%92.png" alt=" "><br>和远程库的交互主要是推、拉，也就是写入和读取。</p>
+<h4 id="5-git-push"><a href="#5-git-push" class="headerlink" title="5. $ git push"></a>5. $ git push</h4><p>写完了代码，要提交到公司的代码库里，这个过程要用 git push.</p>
+<p>当然了，这么用会被打的。。毕竟还要 cr 呢。</p>
+<h4 id="6-git-clone"><a href="#6-git-clone" class="headerlink" title="6. $ git clone"></a>6. $ git clone</h4><p>学习首先要 clone 整个项目到本地来，然后才能增删改查。</p>
+<p>当然了实际工作中也没人这么用。。因为每家公司都会有自己包装的工具。不过如果是做 Github 上的开源项目，就用得上了。</p>
+<h4 id="7-git-pull"><a href="#7-git-pull" class="headerlink" title="7. $ git pull"></a>7. $ git pull</h4><p>提交了新的代码之后，领导要审查呀，所以用 git pull 把最新的代码拉取下来瞅瞅。</p>
+<p>实际上呢，</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git pull &#x3D; fetch + merge</span><br></pre></td></tr></table></figure>
+
+<h4 id="8-git-fetch"><a href="#8-git-fetch" class="headerlink" title="8. $ git fetch"></a>8. $ git fetch</h4><p>git fetch 这个操作是将远程库的数据下载到本地库，但是工作区中的文件没有更新。</p>
+<p><img src="/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/gitfetch.png" alt=" "></p>
+<p>而要谈 get merge，还需要先讲下分支。</p>
+<p>merge 是 git pull 默认的选项，合并其实还有另外一种方法：rebase，中文叫做变基。</p>
+<h4 id="9-git-rebase"><a href="#9-git-rebase" class="headerlink" title="9. $ git rebase"></a>9. $ git rebase</h4><p>rebase 的作用更多的是来整合分叉的历史，可以将某个分支上的所有修改都移到另一分支上，就像是变了基底。</p>
+<h3 id="分支与合并"><a href="#分支与合并" class="headerlink" title="分支与合并"></a>分支与合并</h3><p>首先来看几个关于分支的基本操作：</p>
+<h4 id="10-查看分支"><a href="#10-查看分支" class="headerlink" title="10. 查看分支"></a>10. 查看分支</h4><p>$ git branch</p>
+<p>类似于ls，能够列出当前所有分支。</p>
+<p>git branch -v 能够显示更多信息。</p>
+<h4 id="11-创建分支"><a href="#11-创建分支" class="headerlink" title="11. 创建分支"></a>11. 创建分支</h4><p>$ git branch &lt; branchName &gt;</p>
+<h4 id="12-切换分支"><a href="#12-切换分支" class="headerlink" title="12. 切换分支"></a>12. 切换分支</h4><p>$ git checkout &lt; branchName &gt;</p>
+<p>有了分支之后必然会有合并：</p>
+<h4 id="13-合并分支"><a href="#13-合并分支" class="headerlink" title="13. 合并分支"></a>13. 合并分支</h4><p>$ git merge &lt; branchName &gt;</p>
+<p>而合并时就可能会有冲突，什么时候会有冲突呢？</p>
+<p>在同一个文件的同一个位置修改时。</p>
+<p>因为 Git 会努力的把你们改动不同的地方合并在一起，但如果实在是在同一个地方改的，那它也没办法了，只能留给程序员去手动处理了。</p>
+<h2 id="学习资源"><a href="#学习资源" class="headerlink" title="学习资源"></a>学习资源</h2><h3 id="git-help"><a href="#git-help" class="headerlink" title="git help"></a>git help</h3><p>其实我个人使用最多的是git help</p>
+<p>真心方便又好用啊！</p>
+<p>比如 git help pull:</p>
+<p><img src="/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/gitHelp.png" alt=" "></p>
+<p>先介绍了有哪些参数，然后 description 详细解释了它的工作原理，下面还有图解，有木有太香！！</p>
+<p>不过这种方式更像是 cheatsheet，当你已经知道了这个命令、只是忘了它的用法的时候去查。</p>
+<h3 id="Pro-Git"><a href="#Pro-Git" class="headerlink" title="Pro Git"></a>Pro Git</h3><p>Pro Git 这本书不仅讲了 Git 的基础用法、高级用法，以及最后还深入讲解了 Git 的原理，非常细致全面。</p>
+<p>书的电子版也能在网站上直接下载。</p>
+<p><a href="https://git-scm.com/book/en/v2" target="_blank" rel="noopener">英文版</a></p>
+<p><a href="https://git-scm.com/book/zh/v2" target="_blank" rel="noopener">中文版</a></p>
+<h3 id="玩游戏"><a href="#玩游戏" class="headerlink" title="玩游戏"></a>玩游戏</h3><p>Practice makes perfect!</p>
+<p>推荐一个宝藏资源：玩游戏来练 Git</p>
+<p><a href="https://github.com/pcottle/learnGitBranching" target="_blank" rel="noopener">项目</a></p>
+<p><a href="https://learngitbranching.js.org/" target="_blank" rel="noopener">网址</a></p>
+
+    </div>
+</article>
+
+    <div class="blog-post-comments">
+        <section id="comment">
+            <div id="valine_container" class="valine_thread"></div>
+        </section>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick', 'mail', 'link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'true' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                appId: "TEnoeFH0w3atQfEjCMpzfDOm-gzGzoHsz",
+                appKey: "8GXwVUi9ebKXuqSFR48rkXtK",
+                placeholder: "Just go go",
+                pageSize: '10',
+                avatar: 'mm',
+                lang: 'zh-cn'
+            })
+        </script>
+    </div>
+
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Git的诞生原由"><span class="toc-number">1.</span> <span class="toc-text">Git的诞生原由</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#版本控制系统"><span class="toc-number">2.</span> <span class="toc-text">版本控制系统</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-集中化版本控制系统Centralized-Version-Control-Systems-CVCS"><span class="toc-number">2.1.</span> <span class="toc-text">1. 集中化版本控制系统Centralized Version Control Systems (CVCS)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-分布式版本控制系统Distributed-Version-Control-Systems-DVCS"><span class="toc-number">2.2.</span> <span class="toc-text">2. 分布式版本控制系统Distributed Version Control Systems (DVCS)</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#那么什么叫“把代码仓库完整地镜像下来”呢"><span class="toc-number">2.2.1.</span> <span class="toc-text">那么什么叫“把代码仓库完整地镜像下来”呢</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Git-的数据模型"><span class="toc-number">3.</span> <span class="toc-text">Git 的数据模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-什么是快照-snapshot-呢"><span class="toc-number">3.1.</span> <span class="toc-text">1. 什么是快照 (snapshot) 呢</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-本地库的数据模型"><span class="toc-number">3.2.</span> <span class="toc-text">2. 本地库的数据模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#常用命令"><span class="toc-number">4.</span> <span class="toc-text">常用命令</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#本地操作"><span class="toc-number">4.1.</span> <span class="toc-text">本地操作</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#1-git-add"><span class="toc-number">4.1.1.</span> <span class="toc-text">1. $ git add</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#2-git-commit-m-“comment”"><span class="toc-number">4.1.2.</span> <span class="toc-text">2. $ git commit -m “comment”</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#3-git-log"><span class="toc-number">4.1.3.</span> <span class="toc-text">3. $ git log</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#4-git-reset"><span class="toc-number">4.1.4.</span> <span class="toc-text">4. $ git reset</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#远程交互"><span class="toc-number">4.2.</span> <span class="toc-text">远程交互</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#5-git-push"><span class="toc-number">4.2.1.</span> <span class="toc-text">5. $ git push</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#6-git-clone"><span class="toc-number">4.2.2.</span> <span class="toc-text">6. $ git clone</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#7-git-pull"><span class="toc-number">4.2.3.</span> <span class="toc-text">7. $ git pull</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#8-git-fetch"><span class="toc-number">4.2.4.</span> <span class="toc-text">8. $ git fetch</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#9-git-rebase"><span class="toc-number">4.2.5.</span> <span class="toc-text">9. $ git rebase</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#分支与合并"><span class="toc-number">4.3.</span> <span class="toc-text">分支与合并</span></a><ol class="toc-child"><li class="toc-item toc-level-4"><a class="toc-link" href="#10-查看分支"><span class="toc-number">4.3.1.</span> <span class="toc-text">10. 查看分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#11-创建分支"><span class="toc-number">4.3.2.</span> <span class="toc-text">11. 创建分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#12-切换分支"><span class="toc-number">4.3.3.</span> <span class="toc-text">12. 切换分支</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#13-合并分支"><span class="toc-number">4.3.4.</span> <span class="toc-text">13. 合并分支</span></a></li></ol></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#学习资源"><span class="toc-number">5.</span> <span class="toc-text">学习资源</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#git-help"><span class="toc-number">5.1.</span> <span class="toc-text">git help</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Pro-Git"><span class="toc-number">5.2.</span> <span class="toc-text">Pro Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#玩游戏"><span class="toc-number">5.3.</span> <span class="toc-text">玩游戏</span></a></li></ol></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/&title=给俺一首歌的时间：带你了解Git的前世今生"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/&title=给俺一首歌的时间：带你了解Git的前世今生"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/&text=给俺一首歌的时间：带你了解Git的前世今生" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=给俺一首歌的时间：带你了解Git的前世今生&body=Check out this article: http://theoak.online/2019/08/15/%E7%BB%99%E4%BF%BA%E4%B8%80%E9%A6%96%E6%AD%8C%E7%9A%84%E6%97%B6%E9%97%B4%EF%BC%9A%E5%B8%A6%E4%BD%A0%E4%BA%86%E8%A7%A3Git%E7%9A%84%E5%89%8D%E4%B8%96%E4%BB%8A%E7%94%9F/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>
