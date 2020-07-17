@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+    <!-- so meta -->
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="HandheldFriendly" content="True">
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+    
+    
+        
+            
+                <link rel="shortcut icon" href="/images/favicon.ico">
+            
+        
+        
+            
+                <link rel="icon" type="image/png" href="/images/favicon-192x192.png" sizes="192x192">
+            
+        
+        
+            
+                <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon.png">
+            
+        
+    
+    <!-- title -->
+    <title>SpringMVC常见面试题</title>
+    <!-- styles -->
+    
+<link rel="stylesheet" href="/css/style.css">
+
+    <link href="https://fonts.googleapis.com/css?family=Noto+Sans+SC&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/gh/tonsky/FiraCode@2/distr/fira_code.css" rel="stylesheet">
+    <!-- rss -->
+    
+    
+        <link rel="alternate" href="/true" title="TheOak" type="application/atom+xml"/>
+    
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="max-width mx-auto px3 ltr">
+
+    <div id="header-post">
+    <a id="menu-icon" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="menu-icon-tablet" href="#"><i class="fas fa-bars fa-lg"></i></a>
+    <a id="top-icon-tablet" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');" style="display:none;"><i
+                class="fas fa-chevron-up fa-lg"></i></a>
+    <span id="menu">
+    <span id="nav">
+      <ul>
+          
+              <li><a href="/">Home</a></li>
+          
+              <li><a href="/archives/">Articles</a></li>
+          
+              <li><a href="/categories/">Category</a></li>
+          
+              <li><a href="/tags/">Tag</a></li>
+          
+              <li><a href="/about/">About</a></li>
+          
+              <li><a href="/search/">Search</a></li>
+          
+      </ul>
+    </span>
+    <br/>
+    <span id="actions">
+      <ul>
+          
+          
+              <li><a class="icon" href="/2020/07/17/Mybatis%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/"><i class="fas fa-chevron-right"
+                                                                           aria-hidden="true"
+                                                                           onmouseover="$('#i-next').toggle();"
+                                                                           onmouseout="$('#i-next').toggle();"></i></a></li>
+          
+          <li><a class="icon" href="#" onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i
+                          class="fas fa-chevron-up" aria-hidden="true" onmouseover="$('#i-top').toggle();"
+                          onmouseout="$('#i-top').toggle();"></i></a></li>
+        <li><a class="icon" href="#"><i class="fas fa-share-alt" aria-hidden="true"
+                                        onmouseover="$('#i-share').toggle();" onmouseout="$('#i-share').toggle();"
+                                        onclick="$('#share').toggle();return false;"></i></a></li>
+      </ul>
+      <span id="i-prev" class="info" style="display:none;">Previous post</span>
+      <span id="i-next" class="info" style="display:none;">Next post</span>
+      <span id="i-top" class="info" style="display:none;">Back to top</span>
+      <span id="i-share" class="info" style="display:none;">Share post</span>
+    </span>
+    <br/>
+    <div id="share" style="display: none">
+      <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/07/17/SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/&title=SpringMVC常见面试题"><i
+                    class="fab fa-qq " aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/07/17/SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/&title=SpringMVC常见面试题"><i
+                    class="fab fa-weibo " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/07/17/SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/&text=SpringMVC常见面试题" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter " aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=SpringMVC常见面试题&body=Check out this article: http://theoak.online/2020/07/17/SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/"><i
+                    class="fas fa-envelope " aria-hidden="true"></i></a></li>
+</ul>
+    </div>
+    <div id="toc">
+      <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、什么是Spring-MVC-？简单介绍下你对springMVC的理解"><span class="toc-number">1.</span> <span class="toc-text">1、什么是Spring MVC ？简单介绍下你对springMVC的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、SpringMVC的流程"><span class="toc-number">2.</span> <span class="toc-text">2、SpringMVC的流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、Springmvc的优点"><span class="toc-number">3.</span> <span class="toc-text">3、Springmvc的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、Spring-MVC的主要组件"><span class="toc-number">4.</span> <span class="toc-text">4、Spring MVC的主要组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、springMVC和struts2的区别有哪些"><span class="toc-number">5.</span> <span class="toc-text">5、springMVC和struts2的区别有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、SpringMVC怎么样设定重定向和转发的"><span class="toc-number">6.</span> <span class="toc-text">6、SpringMVC怎么样设定重定向和转发的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、SpringMvc怎么和AJAX相互调用的"><span class="toc-number">7.</span> <span class="toc-text">7、SpringMvc怎么和AJAX相互调用的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、如何解决POST请求中文乱码问题，GET的又如何处理呢"><span class="toc-number">8.</span> <span class="toc-text">8、如何解决POST请求中文乱码问题，GET的又如何处理呢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9、Spring-MVC的异常处理"><span class="toc-number">9.</span> <span class="toc-text">9、Spring MVC的异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10、SpringMvc的控制器是不是单例模式-如果是-有什么问题-怎么解决"><span class="toc-number">10.</span> <span class="toc-text">10、SpringMvc的控制器是不是单例模式,如果是,有什么问题,怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11、-SpringMVC常用的注解有哪些"><span class="toc-number">11.</span> <span class="toc-text">11、 SpringMVC常用的注解有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12、SpingMvc中的控制器的注解一般用那个-有没有别的注解可以替代"><span class="toc-number">12.</span> <span class="toc-text">12、SpingMvc中的控制器的注解一般用那个,有没有别的注解可以替代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13、如果在拦截请求中，我想拦截get方式提交的方法-怎么配置"><span class="toc-number">13.</span> <span class="toc-text">13、如果在拦截请求中，我想拦截get方式提交的方法,怎么配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14、怎样在方法里面得到Request-或者Session"><span class="toc-number">14.</span> <span class="toc-text">14、怎样在方法里面得到Request,或者Session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15、如果想在拦截的方法里面得到从前台传入的参数-怎么得到"><span class="toc-number">15.</span> <span class="toc-text">15、如果想在拦截的方法里面得到从前台传入的参数,怎么得到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16、如果前台有很多个参数传入-并且这些参数都是一个对象的-那么怎么样快速得到这个对象"><span class="toc-number">16.</span> <span class="toc-text">16、如果前台有很多个参数传入,并且这些参数都是一个对象的,那么怎么样快速得到这个对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17、SpringMvc中函数的返回值是什么"><span class="toc-number">17.</span> <span class="toc-text">17、SpringMvc中函数的返回值是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18、SpringMvc用什么对象从后台向前台传递数据的"><span class="toc-number">18.</span> <span class="toc-text">18、SpringMvc用什么对象从后台向前台传递数据的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19、怎么样把ModelMap里面的数据放入Session里面"><span class="toc-number">19.</span> <span class="toc-text">19、怎么样把ModelMap里面的数据放入Session里面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20、SpringMvc里面拦截器是怎么写的"><span class="toc-number">20.</span> <span class="toc-text">20、SpringMvc里面拦截器是怎么写的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21、注解原理"><span class="toc-number">21.</span> <span class="toc-text">21、注解原理</span></a></li></ol>
+    </div>
+  </span>
+</div>
+
+<div class="content index py4">
+    
+    <article class="post" itemscope itemtype="http://schema.org/BlogPosting">
+    <header>
+        
+    <h1 class="posttitle" itemprop="name headline">
+        SpringMVC常见面试题
+    </h1>
+
+        <div class="meta">
+      <span class="author" itemprop="author" itemscope itemtype="http://schema.org/Person">
+        <span itemprop="name">
+            EricGerry
+            
+        </span>
+      </span>
+            
+    <div class="postdate">
+        
+            <time datetime="2020-07-17T08:18:26.000Z"
+                  itemprop="datePublished">2020-07-17</time>
+            
+                (Updated:
+                <time datetime="2020-07-17T08:44:19.032Z"
+                      itemprop="dateModified">2020-07-17</time>)
+            
+        
+    </div>
+
+            
+    <div class="article-category">
+        <i class="fas fa-archive"></i>
+        <a class="category-link" href="/categories/Java/">Java</a> › <a class="category-link" href="/categories/Java/%E9%9D%A2%E8%AF%95/">面试</a>
+    </div>
+
+            
+    <div class="article-tag">
+        <i class="fas fa-tag"></i>
+        <a class="tag-link" href="/tags/Java/" rel="tag">Java</a>, <a class="tag-link" href="/tags/SpringMVC/" rel="tag">SpringMVC</a>, <a class="tag-link" href="/tags/%E9%9D%A2%E8%AF%95/" rel="tag">面试</a>
+    </div>
+
+        </div>
+    </header>
+    
+    <div class="content" itemprop="articleBody">
+        <h2 id="1、什么是Spring-MVC-？简单介绍下你对springMVC的理解"><a href="#1、什么是Spring-MVC-？简单介绍下你对springMVC的理解" class="headerlink" title="1、什么是Spring MVC ？简单介绍下你对springMVC的理解"></a>1、什么是Spring MVC ？简单介绍下你对springMVC的理解</h2><p>Spring MVC是一个基于Java的实现了MVC设计模式的请求驱动类型的轻量级Web框架，通过把Model，View，Controller分离，将web层进行职责解耦，把复杂的web应用分成逻辑清晰的几部分，简化开发，减少出错，方便组内开发人员之间的配合。</p>
+<h2 id="2、SpringMVC的流程"><a href="#2、SpringMVC的流程" class="headerlink" title="2、SpringMVC的流程"></a>2、SpringMVC的流程</h2><ul>
+<li>（1）用户发送请求至前端控制器DispatcherServlet；</li>
+<li>（2） DispatcherServlet收到请求后，调用HandlerMapping处理器映射器，请求获取Handle；</li>
+<li>（3）处理器映射器根据请求url找到具体的处理器，生成处理器对象及处理器拦截器(如果有则生成)一并返回给DispatcherServlet；</li>
+<li>（4）DispatcherServlet 调用 HandlerAdapter处理器适配器；</li>
+<li>（5）HandlerAdapter 经过适配调用 具体处理器(Handler，也叫后端控制器)；</li>
+<li>（6）Handler执行完成返回ModelAndView；</li>
+<li>（7）HandlerAdapter将Handler执行结果ModelAndView返回给DispatcherServlet；</li>
+<li>（8）DispatcherServlet将ModelAndView传给ViewResolver视图解析器进行解析；</li>
+<li>（9）ViewResolver解析后返回具体View；</li>
+<li>（10）DispatcherServlet对View进行渲染视图（即将模型数据填充至视图中）</li>
+<li>（11）DispatcherServlet响应用户。</li>
+</ul>
+<p><img src="/2020/07/17/SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/SpringMVC%E6%B5%81%E7%A8%8B.png" alt=" "></p>
+<h2 id="3、Springmvc的优点"><a href="#3、Springmvc的优点" class="headerlink" title="3、Springmvc的优点"></a>3、Springmvc的优点</h2><ul>
+<li><p>（1）可以支持各种视图技术,而不仅仅局限于JSP；</p>
+</li>
+<li><p>（2）与Spring框架集成（如IoC容器、AOP等）；</p>
+</li>
+<li><p>（3）清晰的角色分配：前端控制器(dispatcherServlet) , 请求到处理器映射（handlerMapping), 处理器适配器（HandlerAdapter), 视图解析器（ViewResolver）。</p>
+</li>
+<li><p>（4） 支持各种请求资源的映射策略。</p>
+</li>
+</ul>
+<h2 id="4、Spring-MVC的主要组件"><a href="#4、Spring-MVC的主要组件" class="headerlink" title="4、Spring MVC的主要组件"></a>4、Spring MVC的主要组件</h2><ul>
+<li>（1）前端控制器 DispatcherServlet（不需要程序员开发）</li>
+</ul>
+<p>作用：接收请求、响应结果，相当于转发器，有了DispatcherServlet 就减少了其它组件之间的耦合度。</p>
+<ul>
+<li>（2）处理器映射器HandlerMapping（不需要程序员开发）</li>
+</ul>
+<p>作用：根据请求的URL来查找Handler</p>
+<ul>
+<li>（3）处理器适配器HandlerAdapter</li>
+</ul>
+<p>注意：在编写Handler的时候要按照HandlerAdapter要求的规则去编写，这样适配器HandlerAdapter才可以正确的去执行Handler。</p>
+<ul>
+<li><p>（4）处理器Handler（需要程序员开发）</p>
+</li>
+<li><p>（5）视图解析器 ViewResolver（不需要程序员开发）</p>
+</li>
+</ul>
+<p>作用：进行视图的解析，根据视图逻辑名解析成真正的视图（view）</p>
+<ul>
+<li>（6）视图View（需要程序员开发jsp）</li>
+</ul>
+<p>View是一个接口， 它的实现类支持不同的视图类型（jsp，freemarker，pdf等等）</p>
+<h2 id="5、springMVC和struts2的区别有哪些"><a href="#5、springMVC和struts2的区别有哪些" class="headerlink" title="5、springMVC和struts2的区别有哪些"></a>5、springMVC和struts2的区别有哪些</h2><ul>
+<li><p>（1）springmvc的入口是一个servlet即前端控制器（DispatchServlet），而struts2入口是一个filter过虑器（StrutsPrepareAndExecuteFilter）。</p>
+</li>
+<li><p>（2）springmvc是基于方法开发(一个url对应一个方法)，请求参数传递到方法的形参，可以设计为单例或多例(建议单例)，struts2是基于类开发，传递参数是通过类的属性，只能设计为多例。</p>
+</li>
+<li><p>（3）Struts采用值栈存储请求和响应的数据，通过OGNL存取数据，springmvc通过参数解析器是将request请求内容解析，并给方法形参赋值，将数据和视图封装成ModelAndView对象，最后又将ModelAndView中的模型数据通过reques域传输到页面。Jsp视图解析器默认使用jstl。</p>
+</li>
+</ul>
+<h2 id="6、SpringMVC怎么样设定重定向和转发的"><a href="#6、SpringMVC怎么样设定重定向和转发的" class="headerlink" title="6、SpringMVC怎么样设定重定向和转发的"></a>6、SpringMVC怎么样设定重定向和转发的</h2><ul>
+<li><p>（1）转发：在返回值前面加”forward:”，譬如”forward:user.do?name=method4”</p>
+</li>
+<li><p>（2）重定向：在返回值前面加”redirect:”，譬如”redirect:[<a href="http://www.baidu.com]&quot;">http://www.baidu.com]&quot;</a></p>
+</li>
+</ul>
+<h2 id="7、SpringMvc怎么和AJAX相互调用的"><a href="#7、SpringMvc怎么和AJAX相互调用的" class="headerlink" title="7、SpringMvc怎么和AJAX相互调用的"></a>7、SpringMvc怎么和AJAX相互调用的</h2><p>通过Jackson框架就可以把Java里面的对象直接转化成Js可以识别的Json对象。具体步骤如下 ：</p>
+<ul>
+<li><p>（1）加入Jackson.jar</p>
+</li>
+<li><p>（2）在配置文件中配置json的映射</p>
+</li>
+<li><p>（3）在接受Ajax方法里面可以直接返回Object,List等,但方法前面要加上@ResponseBody注解。</p>
+</li>
+</ul>
+<h2 id="8、如何解决POST请求中文乱码问题，GET的又如何处理呢"><a href="#8、如何解决POST请求中文乱码问题，GET的又如何处理呢" class="headerlink" title="8、如何解决POST请求中文乱码问题，GET的又如何处理呢"></a>8、如何解决POST请求中文乱码问题，GET的又如何处理呢</h2><ul>
+<li>（1）解决post请求乱码问题：</li>
+</ul>
+<p>在web.xml中配置一个CharacterEncodingFilter过滤器，设置成utf-8；</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-class</span>&gt;</span>org.springframework.web.filter.CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-class</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">init-param</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-name</span>&gt;</span>encoding<span class="tag">&lt;/<span class="name">param-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">        <span class="tag">&lt;<span class="name">param-value</span>&gt;</span>utf-8<span class="tag">&lt;/<span class="name">param-value</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">init-param</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">filter-mapping</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">filter-name</span>&gt;</span>CharacterEncodingFilter<span class="tag">&lt;/<span class="name">filter-name</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">url-pattern</span>&gt;</span>/*<span class="tag">&lt;/<span class="name">url-pattern</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">filter-mapping</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>（2）get请求中文参数出现乱码解决方法有两个：</li>
+</ul>
+<p>①修改tomcat配置文件添加编码与工程编码一致，如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&lt;ConnectorURIEncoding=<span class="string">"utf-8"</span> connectionTimeout=<span class="string">"20000"</span> port=<span class="string">"8080"</span> protocol=<span class="string">"HTTP/1.1"</span> redirectPort=<span class="string">"8443"</span>/&gt;</span><br></pre></td></tr></table></figure>
+
+<p>②另外一种方法对参数进行重新编码：</p>
+<p>String userName = new String(request.getParamter(“userName”).getBytes(“ISO8859-1”),”utf-8”)</p>
+<p>ISO8859-1是tomcat默认编码，需要将tomcat编码后的内容按utf-8编码。</p>
+<h2 id="9、Spring-MVC的异常处理"><a href="#9、Spring-MVC的异常处理" class="headerlink" title="9、Spring MVC的异常处理"></a>9、Spring MVC的异常处理</h2><p>可以将异常抛给Spring框架，由Spring框架来处理；我们只需要配置简单的异常处理器，在异常处理器中添视图页面即可。</p>
+<h2 id="10、SpringMvc的控制器是不是单例模式-如果是-有什么问题-怎么解决"><a href="#10、SpringMvc的控制器是不是单例模式-如果是-有什么问题-怎么解决" class="headerlink" title="10、SpringMvc的控制器是不是单例模式,如果是,有什么问题,怎么解决"></a>10、SpringMvc的控制器是不是单例模式,如果是,有什么问题,怎么解决</h2><p>是单例模式,所以在多线程访问的时候有线程安全问题,不要用同步,会影响性能的,解决方案是在控制器里面不能写字段。</p>
+<h2 id="11、-SpringMVC常用的注解有哪些"><a href="#11、-SpringMVC常用的注解有哪些" class="headerlink" title="11、 SpringMVC常用的注解有哪些"></a>11、 SpringMVC常用的注解有哪些</h2><p>@RequestMapping：用于处理请求 url 映射的注解，可用于类或方法上。用于类上，则表示类中的所有响应请求的方法都是以该地址作为父路径。</p>
+<p>@RequestBody：注解实现接收http请求的json数据，将json转换为java对象。</p>
+<p>@ResponseBody：注解实现将conreoller方法返回对象转化为json对象响应给客户。</p>
+<h2 id="12、SpingMvc中的控制器的注解一般用那个-有没有别的注解可以替代"><a href="#12、SpingMvc中的控制器的注解一般用那个-有没有别的注解可以替代" class="headerlink" title="12、SpingMvc中的控制器的注解一般用那个,有没有别的注解可以替代"></a>12、SpingMvc中的控制器的注解一般用那个,有没有别的注解可以替代</h2><p>一般用@Controller注解,也可以使用@RestController,@RestController注解相当于@ResponseBody ＋ @Controller,表示是表现层,除此之外，一般不用别的注解代替。</p>
+<h2 id="13、如果在拦截请求中，我想拦截get方式提交的方法-怎么配置"><a href="#13、如果在拦截请求中，我想拦截get方式提交的方法-怎么配置" class="headerlink" title="13、如果在拦截请求中，我想拦截get方式提交的方法,怎么配置"></a>13、如果在拦截请求中，我想拦截get方式提交的方法,怎么配置</h2><p>可以在@RequestMapping注解里面加上method=RequestMethod.GET。</p>
+<h2 id="14、怎样在方法里面得到Request-或者Session"><a href="#14、怎样在方法里面得到Request-或者Session" class="headerlink" title="14、怎样在方法里面得到Request,或者Session"></a>14、怎样在方法里面得到Request,或者Session</h2><p>直接在方法的形参中声明request,SpringMvc就自动把request对象传入。</p>
+<h2 id="15、如果想在拦截的方法里面得到从前台传入的参数-怎么得到"><a href="#15、如果想在拦截的方法里面得到从前台传入的参数-怎么得到" class="headerlink" title="15、如果想在拦截的方法里面得到从前台传入的参数,怎么得到"></a>15、如果想在拦截的方法里面得到从前台传入的参数,怎么得到</h2><p>直接在形参里面声明这个参数就可以,但必须名字和传过来的参数一样。</p>
+<h2 id="16、如果前台有很多个参数传入-并且这些参数都是一个对象的-那么怎么样快速得到这个对象"><a href="#16、如果前台有很多个参数传入-并且这些参数都是一个对象的-那么怎么样快速得到这个对象" class="headerlink" title="16、如果前台有很多个参数传入,并且这些参数都是一个对象的,那么怎么样快速得到这个对象"></a>16、如果前台有很多个参数传入,并且这些参数都是一个对象的,那么怎么样快速得到这个对象</h2><p>答：直接在方法中声明这个对象,SpringMvc就自动会把属性赋值到这个对象里面。</p>
+<h2 id="17、SpringMvc中函数的返回值是什么"><a href="#17、SpringMvc中函数的返回值是什么" class="headerlink" title="17、SpringMvc中函数的返回值是什么"></a>17、SpringMvc中函数的返回值是什么</h2><p>返回值可以有很多类型,有String, ModelAndView。ModelAndView类把视图和数据都合并的一起的，但一般用String比较好。</p>
+<h2 id="18、SpringMvc用什么对象从后台向前台传递数据的"><a href="#18、SpringMvc用什么对象从后台向前台传递数据的" class="headerlink" title="18、SpringMvc用什么对象从后台向前台传递数据的"></a>18、SpringMvc用什么对象从后台向前台传递数据的</h2><p>通过ModelMap对象,可以在这个对象里面调用put方法,把对象加到里面,前台就可以通过el表达式拿到。</p>
+<h2 id="19、怎么样把ModelMap里面的数据放入Session里面"><a href="#19、怎么样把ModelMap里面的数据放入Session里面" class="headerlink" title="19、怎么样把ModelMap里面的数据放入Session里面"></a>19、怎么样把ModelMap里面的数据放入Session里面</h2><p>可以在类上面加上@SessionAttributes注解,里面包含的字符串就是要放入session里面的key。</p>
+<h2 id="20、SpringMvc里面拦截器是怎么写的"><a href="#20、SpringMvc里面拦截器是怎么写的" class="headerlink" title="20、SpringMvc里面拦截器是怎么写的"></a>20、SpringMvc里面拦截器是怎么写的</h2><p>有两种写法,一种是实现HandlerInterceptor接口，另外一种是继承适配器类，接着在接口方法当中，实现处理逻辑；然后在SpringMvc的配置文件中配置拦截器即可：</p>
+<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">  <span class="comment">&lt;!-- 配置SpringMvc的拦截器 --&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">mvc:interceptors</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 配置一个拦截器的Bean就可以了 默认是对所有请求都拦截 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">bean</span> <span class="attr">id</span>=<span class="string">"myInterceptor"</span> <span class="attr">class</span>=<span class="string">"com.zwp.action.MyHandlerInterceptor"</span>&gt;</span><span class="tag">&lt;/<span class="name">bean</span>&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="comment">&lt;!-- 只针对部分请求拦截 --&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">mvc:mapping</span> <span class="attr">path</span>=<span class="string">"/modelMap.do"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">       <span class="tag">&lt;<span class="name">bean</span> <span class="attr">class</span>=<span class="string">"com.zwp.action.MyHandlerInterceptorAdapter"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line">    <span class="tag">&lt;/<span class="name">mvc:interceptor</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">mvc:interceptors</span>&gt;</span></span><br></pre></td></tr></table></figure>
+
+<h2 id="21、注解原理"><a href="#21、注解原理" class="headerlink" title="21、注解原理"></a>21、注解原理</h2><p>注解本质是一个继承了Annotation的特殊接口，其具体实现类是Java运行时生成的动态代理类。我们通过反射获取注解时，返回的是Java运行时生成的动态代理对象。通过代理对象调用自定义注解的方法，会最终调用AnnotationInvocationHandler的invoke方法。该方法会从memberValues这个Map中索引出对应的值。而memberValues的来源是Java常量池。</p>
+
+    </div>
+</article>
+
+    <div class="blog-post-comments">
+        <section id="comment">
+            <div id="valine_container" class="valine_thread"></div>
+        </section>
+        <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+        <script src="//unpkg.com/valine/dist/Valine.min.js"></script>
+        <script>
+            var GUEST_INFO = ['nick', 'mail', 'link'];
+            var guest_info = 'nick,mail,link'.split(',').filter(function (item) {
+                return GUEST_INFO.indexOf(item) > -1
+            });
+            var notify = 'true' == true;
+            var verify = 'false' == true;
+            var valine = new Valine();
+            valine.init({
+                el: '#valine_container',
+                notify: notify,
+                verify: verify,
+                appId: "TEnoeFH0w3atQfEjCMpzfDOm-gzGzoHsz",
+                appKey: "8GXwVUi9ebKXuqSFR48rkXtK",
+                placeholder: "Just go go",
+                pageSize: '10',
+                avatar: 'mm',
+                lang: 'zh-cn'
+            })
+        </script>
+    </div>
+
+    
+        <div id="footer-post-container">
+    <div id="footer-post">
+
+        <div id="nav-footer" style="display: none">
+            <ul>
+                
+                    <li><a href="/">Home</a></li>
+                
+                    <li><a href="/archives/">Articles</a></li>
+                
+                    <li><a href="/categories/">Category</a></li>
+                
+                    <li><a href="/tags/">Tag</a></li>
+                
+                    <li><a href="/about/">About</a></li>
+                
+                    <li><a href="/search/">Search</a></li>
+                
+            </ul>
+        </div>
+
+        <div id="toc-footer" style="display: none">
+            <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#1、什么是Spring-MVC-？简单介绍下你对springMVC的理解"><span class="toc-number">1.</span> <span class="toc-text">1、什么是Spring MVC ？简单介绍下你对springMVC的理解</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2、SpringMVC的流程"><span class="toc-number">2.</span> <span class="toc-text">2、SpringMVC的流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3、Springmvc的优点"><span class="toc-number">3.</span> <span class="toc-text">3、Springmvc的优点</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#4、Spring-MVC的主要组件"><span class="toc-number">4.</span> <span class="toc-text">4、Spring MVC的主要组件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#5、springMVC和struts2的区别有哪些"><span class="toc-number">5.</span> <span class="toc-text">5、springMVC和struts2的区别有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#6、SpringMVC怎么样设定重定向和转发的"><span class="toc-number">6.</span> <span class="toc-text">6、SpringMVC怎么样设定重定向和转发的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#7、SpringMvc怎么和AJAX相互调用的"><span class="toc-number">7.</span> <span class="toc-text">7、SpringMvc怎么和AJAX相互调用的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#8、如何解决POST请求中文乱码问题，GET的又如何处理呢"><span class="toc-number">8.</span> <span class="toc-text">8、如何解决POST请求中文乱码问题，GET的又如何处理呢</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#9、Spring-MVC的异常处理"><span class="toc-number">9.</span> <span class="toc-text">9、Spring MVC的异常处理</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#10、SpringMvc的控制器是不是单例模式-如果是-有什么问题-怎么解决"><span class="toc-number">10.</span> <span class="toc-text">10、SpringMvc的控制器是不是单例模式,如果是,有什么问题,怎么解决</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#11、-SpringMVC常用的注解有哪些"><span class="toc-number">11.</span> <span class="toc-text">11、 SpringMVC常用的注解有哪些</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#12、SpingMvc中的控制器的注解一般用那个-有没有别的注解可以替代"><span class="toc-number">12.</span> <span class="toc-text">12、SpingMvc中的控制器的注解一般用那个,有没有别的注解可以替代</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#13、如果在拦截请求中，我想拦截get方式提交的方法-怎么配置"><span class="toc-number">13.</span> <span class="toc-text">13、如果在拦截请求中，我想拦截get方式提交的方法,怎么配置</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#14、怎样在方法里面得到Request-或者Session"><span class="toc-number">14.</span> <span class="toc-text">14、怎样在方法里面得到Request,或者Session</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#15、如果想在拦截的方法里面得到从前台传入的参数-怎么得到"><span class="toc-number">15.</span> <span class="toc-text">15、如果想在拦截的方法里面得到从前台传入的参数,怎么得到</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#16、如果前台有很多个参数传入-并且这些参数都是一个对象的-那么怎么样快速得到这个对象"><span class="toc-number">16.</span> <span class="toc-text">16、如果前台有很多个参数传入,并且这些参数都是一个对象的,那么怎么样快速得到这个对象</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#17、SpringMvc中函数的返回值是什么"><span class="toc-number">17.</span> <span class="toc-text">17、SpringMvc中函数的返回值是什么</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#18、SpringMvc用什么对象从后台向前台传递数据的"><span class="toc-number">18.</span> <span class="toc-text">18、SpringMvc用什么对象从后台向前台传递数据的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#19、怎么样把ModelMap里面的数据放入Session里面"><span class="toc-number">19.</span> <span class="toc-text">19、怎么样把ModelMap里面的数据放入Session里面</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20、SpringMvc里面拦截器是怎么写的"><span class="toc-number">20.</span> <span class="toc-text">20、SpringMvc里面拦截器是怎么写的</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#21、注解原理"><span class="toc-number">21.</span> <span class="toc-text">21、注解原理</span></a></li></ol>
+        </div>
+
+        <div id="share-footer" style="display: none">
+            <ul>
+    <li><a class="icon"
+           href="https://sns.qzone.qq.com/cgi-bin/qzshare/cgi_qzshare_onekey?url=http://theoak.online/2020/07/17/SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/&title=SpringMVC常见面试题"><i
+                    class="fab fa-qq fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon"
+           href="https://service.weibo.com/share/share.php?url=http://theoak.online/2020/07/17/SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/&title=SpringMVC常见面试题"><i
+                    class="fab fa-weibo fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="https://twitter.com/share?url=http://theoak.online/2020/07/17/SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/&text=SpringMVC常见面试题" target="_blank" rel="noopener"><i
+                    class="fab fa-twitter fa-lg" aria-hidden="true"></i></a></li>
+    <li><a class="icon" href="mailto:?subject=SpringMVC常见面试题&body=Check out this article: http://theoak.online/2020/07/17/SpringMVC%E5%B8%B8%E8%A7%81%E9%9D%A2%E8%AF%95%E9%A2%98/"><i
+                    class="fas fa-envelope fa-lg" aria-hidden="true"></i></a></li>
+</ul>
+        </div>
+
+        <div id="actions-footer">
+            <a id="menu" class="icon" href="#" onclick="$('#nav-footer').toggle();return false;"><i
+                        class="fas fa-bars fa-lg"
+                        aria-hidden="true"></i> Menu</a>
+            <a id="toc" class="icon" href="#" onclick="$('#toc-footer').toggle();return false;"><i
+                        class="fas fa-list fa-lg"
+                        aria-hidden="true"></i> TOC</a>
+            <a id="share" class="icon" href="#" onclick="$('#share-footer').toggle();return false;"><i
+                        class="fas fa-share-alt fa-lg" aria-hidden="true"></i> Share</a>
+            <a id="top" style="display:none" class="icon" href="#"
+               onclick="$('html, body').animate({ scrollTop: 0 }, 'fast');"><i class="fas fa-chevron-up fa-lg"
+                                                                               aria-hidden="true"></i> Top
+            </a>
+        </div>
+
+    </div>
+</div>
+    
+    <footer id="footer">
+    <div class="footer-left">
+        Copyright &copy; 2020 <i class="fas fa-heart"></i>
+        EricGerry
+        
+    </div>
+    <!-- <div class="footer-right">
+    <nav>
+      <ul>
+        
+        <li><a href="/">Home</a></li>
+        
+        <li><a href="/archives/">Articles</a></li>
+        
+        <li><a href="/categories/">Category</a></li>
+        
+        <li><a href="/tags/">Tag</a></li>
+        
+        <li><a href="/about/">About</a></li>
+        
+        <li><a href="/search/">Search</a></li>
+        
+      </ul>
+    </nav>
+  </div> -->
+
+    <div class="footer-custom">
+        Framework by <a href="https://hexo.io" target="_blank">Hexo</a> & Theme by <a
+                href="https://github.com/xuthus5/hexo-theme-cactus" target="_blank">Cactus-CN</a>
+        
+    </div>
+</footer>
+</div>
+<!-- styles -->
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/font-awesome/5.12.1/css/all.min.css">
+
+
+<link rel="stylesheet" href="https://cdn.staticfile.org/justifiedGallery/3.7.0/css/justifiedGallery.min.css">
+
+<!-- jquery -->
+
+<script src="https://cdn.staticfile.org/jquery/3.4.1/jquery.min.js"></script>
+
+
+<script src="https://cdn.staticfile.org/justifiedGallery/3.7.0/js/jquery.justifiedGallery.min.js"></script>
+
+<!-- clipboard -->
+
+    
+<script src="https://cdn.staticfile.org/clipboard.js/2.0.6/clipboard.min.js"></script>
+
+    <script type="text/javascript">
+        $(function () {
+            // copy-btn HTML
+            var btn = "<span class=\"btn-copy tooltipped tooltipped-sw\" aria-label=\"Copy to clipboard!\">";
+            btn += '<i class="far fa-clone"></i>';
+            btn += '</span>';
+            // mount it!
+            $(".highlight .code pre").before(btn);
+            var clip = new ClipboardJS('.btn-copy', {
+                target: function (trigger) {
+                    return trigger.nextElementSibling;
+                }
+            });
+            clip.on('success', function (e) {
+                e.trigger.setAttribute('aria-label', "Copied!");
+                e.clearSelection();
+            })
+        })
+    </script>
+
+
+<script src="/js/main.js"></script>
+
+<!-- search -->
+
+</body>
+
+</html>
